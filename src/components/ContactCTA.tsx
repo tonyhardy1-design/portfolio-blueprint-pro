@@ -11,17 +11,17 @@ const ContactCTA = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <p className="font-body text-sm tracking-[0.35em] uppercase text-primary mb-4">Let's Create Together</p>
+          <p className="font-body text-sm tracking-[0.35em] uppercase text-muted-foreground mb-4">Commissions & Prints</p>
           <h2 className="font-display text-4xl md:text-5xl text-foreground mb-6">
-            Ready to tell your story?
+            Let's work together
           </h2>
-          <p className="font-body text-muted-foreground leading-relaxed mb-10">
-            I'd love to hear about your vision. Whether it's an intimate elopement or 
-            a grand celebration, every love story deserves to be told beautifully.
+          <p className="font-body text-secondary-foreground leading-relaxed mb-10">
+            Whether you're looking for a portrait session, fine art prints, 
+            or a commissioned project — I'd love to hear from you.
           </p>
           <Link
             to="/contact"
-            className="inline-block bg-primary text-primary-foreground px-12 py-4 font-body text-sm tracking-widest uppercase hover:bg-primary/90 transition-all duration-300"
+            className="inline-block bg-foreground text-background px-12 py-4 font-body text-sm tracking-widest uppercase hover:bg-muted-foreground transition-all duration-300"
           >
             Get in Touch
           </Link>

@@ -1,19 +1,19 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import portfolio1 from "@/assets/portfolio-1.jpg";
-import portfolio2 from "@/assets/portfolio-2.jpg";
-import portfolio3 from "@/assets/portfolio-3.jpg";
-import portfolio4 from "@/assets/portfolio-4.jpg";
-import portfolio5 from "@/assets/portfolio-5.jpg";
-import portfolio6 from "@/assets/portfolio-6.jpg";
+import bwPortrait1 from "@/assets/bw-portrait-1.jpg";
+import bwStreet1 from "@/assets/bw-street-1.jpg";
+import bwArch1 from "@/assets/bw-arch-1.jpg";
+import bwCandid1 from "@/assets/bw-candid-1.jpg";
+import bwUrban1 from "@/assets/bw-urban-1.jpg";
+import bwStreet2 from "@/assets/bw-street-2.jpg";
 
 const galleries = [
-  { src: portfolio1, title: "Sarah & James", location: "Tuscany, Italy", aspect: "tall" },
-  { src: portfolio2, title: "Maya & Leo", location: "Brooklyn, NY", aspect: "wide" },
-  { src: portfolio3, title: "Clara & Noah", location: "Blue Ridge Mountains", aspect: "tall" },
-  { src: portfolio4, title: "Amara & David", location: "Savannah, GA", aspect: "wide" },
-  { src: portfolio5, title: "Lily & Ben", location: "Austin, TX", aspect: "tall" },
-  { src: portfolio6, title: "Emma & Ryan", location: "Big Sur, CA", aspect: "wide" },
+  { src: bwPortrait1, title: "Faces of Time", category: "Portrait" },
+  { src: bwStreet1, title: "Crossings", category: "Street" },
+  { src: bwArch1, title: "Ascent", category: "Architecture" },
+  { src: bwCandid1, title: "Café Noir", category: "Street Portrait" },
+  { src: bwUrban1, title: "Dawn Bridge", category: "Urban" },
+  { src: bwStreet2, title: "Innocence", category: "Street" },
 ];
 
 const PortfolioGrid = () => {
@@ -27,8 +27,8 @@ const PortfolioGrid = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <p className="font-body text-sm tracking-[0.35em] uppercase text-primary mb-4">Selected Work</p>
-          <h2 className="font-display text-4xl md:text-5xl text-foreground">Recent Stories</h2>
+          <p className="font-body text-sm tracking-[0.35em] uppercase text-muted-foreground mb-4">Selected Work</p>
+          <h2 className="font-display text-4xl md:text-5xl text-foreground">Recent Work</h2>
         </motion.div>
 
         <div className="columns-1 md:columns-2 gap-4 space-y-4">
@@ -43,15 +43,14 @@ const PortfolioGrid = () => {
             >
               <img
                 src={item.src}
-                alt={`${item.title} wedding photography in ${item.location}`}
+                alt={`${item.title} — ${item.category} black and white photography by Tony Hardy`}
                 className="w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
-              {/* Hover overlay */}
-              <div className="absolute inset-0 bg-background/0 group-hover:bg-background/60 transition-all duration-500 flex items-center justify-center">
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-center translate-y-4 group-hover:translate-y-0">
-                  <h3 className="font-display text-2xl text-foreground mb-1">{item.title}</h3>
-                  <p className="font-body text-sm text-muted-foreground tracking-widest uppercase">{item.location}</p>
+              <div className="absolute inset-0 bg-background/0 group-hover:bg-background/70 transition-all duration-500 flex items-center justify-center">
+                <div className="opacity-0 group-hover:opacity-100 transition-all duration-500 text-center translate-y-4 group-hover:translate-y-0">
+                  <p className="font-body text-xs tracking-widest uppercase text-muted-foreground mb-2">{item.category}</p>
+                  <h3 className="font-display text-2xl text-foreground">{item.title}</h3>
                 </div>
               </div>
             </motion.div>
@@ -67,7 +66,7 @@ const PortfolioGrid = () => {
         >
           <Link
             to="/portfolio"
-            className="inline-block border border-border text-muted-foreground px-10 py-4 font-body text-sm tracking-widest uppercase hover:border-primary hover:text-primary transition-all duration-500"
+            className="inline-block border border-border text-muted-foreground px-10 py-4 font-body text-sm tracking-widest uppercase hover:border-foreground hover:text-foreground transition-all duration-500"
           >
             View All Work
           </Link>

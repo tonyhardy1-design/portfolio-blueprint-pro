@@ -62,10 +62,16 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        silver: "hsl(var(--silver))",
+        "off-white": "hsl(var(--off-white))",
       },
       fontFamily: {
         display: ["Playfair Display", "serif"],
         body: ["DM Sans", "sans-serif"],
+      },
+      fontFamily: {
+        display: ["Cormorant Garamond", "serif"],
+        body: ["Space Grotesk", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",

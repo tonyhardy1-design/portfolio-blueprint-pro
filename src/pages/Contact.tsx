@@ -7,15 +7,13 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    date: "",
-    location: "",
+    subject: "",
     message: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission placeholder
-    alert("Thank you! Your inquiry has been sent.");
+    window.location.href = `mailto:tonyhardy1@hotmail.com?subject=${encodeURIComponent(formData.subject || "Photography Inquiry")}&body=${encodeURIComponent(`From: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`)}`;
   };
 
   return (
@@ -29,11 +27,17 @@ const Contact = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-20"
           >
-            <p className="font-body text-sm tracking-[0.35em] uppercase text-primary mb-4">Contact</p>
-            <h1 className="font-display text-5xl md:text-6xl text-foreground mb-6">Let's Talk</h1>
+            <p className="font-body text-sm tracking-[0.35em] uppercase text-muted-foreground mb-4">Contact</p>
+            <h1 className="font-display text-5xl md:text-6xl text-foreground mb-6">Get in Touch</h1>
             <p className="font-body text-muted-foreground max-w-lg mx-auto">
-              Tell me about your wedding plans and I'll be in touch within 48 hours.
+              Interested in a portrait session, prints, or a collaboration? Drop me a line.
             </p>
+            <a 
+              href="mailto:tonyhardy1@hotmail.com" 
+              className="inline-block font-body text-foreground text-sm tracking-widest uppercase mt-4 border-b border-foreground pb-1 hover:text-muted-foreground hover:border-muted-foreground transition-all"
+            >
+              tonyhardy1@hotmail.com
+            </a>
           </motion.div>
 
           <motion.form
@@ -52,7 +56,7 @@ const Contact = () => {
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full bg-transparent border-b border-border py-3 font-body text-foreground focus:border-primary outline-none transition-colors"
+                className="w-full bg-transparent border-b border-border py-3 font-body text-foreground focus:border-foreground outline-none transition-colors"
               />
             </div>
             <div>
@@ -64,49 +68,38 @@ const Contact = () => {
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full bg-transparent border-b border-border py-3 font-body text-foreground focus:border-primary outline-none transition-colors"
-              />
-            </div>
-            <div>
-              <label className="font-body text-xs tracking-widest uppercase text-muted-foreground block mb-2">
-                Wedding Date
-              </label>
-              <input
-                type="text"
-                placeholder="MM/DD/YYYY or TBD"
-                value={formData.date}
-                onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                className="w-full bg-transparent border-b border-border py-3 font-body text-foreground placeholder:text-muted-foreground/40 focus:border-primary outline-none transition-colors"
-              />
-            </div>
-            <div>
-              <label className="font-body text-xs tracking-widest uppercase text-muted-foreground block mb-2">
-                Location / Venue
-              </label>
-              <input
-                type="text"
-                value={formData.location}
-                onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                className="w-full bg-transparent border-b border-border py-3 font-body text-foreground focus:border-primary outline-none transition-colors"
+                className="w-full bg-transparent border-b border-border py-3 font-body text-foreground focus:border-foreground outline-none transition-colors"
               />
             </div>
             <div className="md:col-span-2">
               <label className="font-body text-xs tracking-widest uppercase text-muted-foreground block mb-2">
-                Tell Me About Your Day
+                Subject
+              </label>
+              <input
+                type="text"
+                placeholder="Portrait session, prints, collaboration..."
+                value={formData.subject}
+                onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                className="w-full bg-transparent border-b border-border py-3 font-body text-foreground placeholder:text-muted-foreground/40 focus:border-foreground outline-none transition-colors"
+              />
+            </div>
+            <div className="md:col-span-2">
+              <label className="font-body text-xs tracking-widest uppercase text-muted-foreground block mb-2">
+                Message
               </label>
               <textarea
                 rows={4}
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full bg-transparent border-b border-border py-3 font-body text-foreground focus:border-primary outline-none transition-colors resize-none"
+                className="w-full bg-transparent border-b border-border py-3 font-body text-foreground focus:border-foreground outline-none transition-colors resize-none"
               />
             </div>
             <div className="md:col-span-2 text-center mt-6">
               <button
                 type="submit"
-                className="inline-block bg-primary text-primary-foreground px-12 py-4 font-body text-sm tracking-widest uppercase hover:bg-primary/90 transition-all duration-300"
+                className="inline-block bg-foreground text-background px-12 py-4 font-body text-sm tracking-widest uppercase hover:bg-muted-foreground transition-all duration-300"
               >
-                Send Inquiry
+                Send Message
               </button>
             </div>
           </motion.form>
