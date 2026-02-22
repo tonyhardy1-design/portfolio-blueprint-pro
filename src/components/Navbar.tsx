@@ -34,10 +34,9 @@ const Navbar = () => {
     >
       <nav className="container mx-auto flex items-center justify-between px-6 py-5">
         <Link to="/" className="font-display text-2xl tracking-wide text-foreground hover:text-primary transition-colors">
-          Elena Voss
+          Tony Hardy
         </Link>
 
-        {/* Desktop */}
         <ul className="hidden md:flex items-center gap-10">
           {navItems.map((item) => (
             <li key={item.path}>
@@ -55,7 +54,6 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Mobile toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           className="md:hidden text-foreground"
@@ -65,7 +63,6 @@ const Navbar = () => {
         </button>
       </nav>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div

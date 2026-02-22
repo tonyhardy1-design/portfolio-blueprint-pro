@@ -3,19 +3,19 @@ import { useState } from "react";
 
 const testimonials = [
   {
-    quote: "Elena didn't just photograph our wedding — she captured the feeling of it. Every image transports us right back to that magical day.",
-    couple: "Sarah & James",
-    location: "Tuscany Elopement",
+    quote: "Tony sees what most people walk past. His portraits have a weight and honesty that colour could never achieve.",
+    name: "Marcus Chen",
+    context: "Portrait Client",
   },
   {
-    quote: "We were so nervous about being in front of the camera, but Elena made us forget it was even there. The result is the most authentic version of us.",
-    couple: "Maya & Leo",
-    location: "Brooklyn Wedding",
+    quote: "The prints he delivered are gallery-quality. There's a timelessness to his black and white work that makes every image feel like it could hang in a museum.",
+    name: "Sarah Mitchell",
+    context: "Art Collector",
   },
   {
-    quote: "Looking through our gallery feels like watching a film of the best day of our lives. Her eye for light and emotion is truly unmatched.",
-    couple: "Clara & Noah",
-    location: "Mountain Elopement",
+    quote: "Working with Tony was effortless. He captured my personality in a way I didn't think was possible — raw, real, and striking.",
+    name: "David Okoye",
+    context: "Portrait Session",
   },
 ];
 
@@ -29,7 +29,7 @@ const Testimonials = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="font-body text-sm tracking-[0.35em] uppercase text-primary mb-12"
+          className="font-body text-sm tracking-[0.35em] uppercase text-muted-foreground mb-12"
         >
           Kind Words
         </motion.p>
@@ -43,22 +43,21 @@ const Testimonials = () => {
           <blockquote className="font-display text-2xl md:text-3xl text-foreground italic leading-relaxed mb-8">
             "{testimonials[current].quote}"
           </blockquote>
-          <p className="font-body text-primary text-sm tracking-widest uppercase">
-            {testimonials[current].couple}
+          <p className="font-body text-foreground text-sm tracking-widest uppercase">
+            {testimonials[current].name}
           </p>
           <p className="font-body text-muted-foreground text-xs tracking-wider uppercase mt-1">
-            {testimonials[current].location}
+            {testimonials[current].context}
           </p>
         </motion.div>
 
-        {/* Dots */}
         <div className="flex justify-center gap-3 mt-10">
           {testimonials.map((_, i) => (
             <button
               key={i}
               onClick={() => setCurrent(i)}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                i === current ? "bg-primary w-6" : "bg-muted-foreground/30"
+                i === current ? "bg-foreground w-6" : "bg-muted-foreground/30"
               }`}
               aria-label={`View testimonial ${i + 1}`}
             />
