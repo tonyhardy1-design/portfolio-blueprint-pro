@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
 const testimonials = [
@@ -19,6 +19,8 @@ const testimonials = [
   },
 ];
 
+const snappy = [0.76, 0, 0.24, 1] as const;
+
 const Testimonials = () => {
   const [current, setCurrent] = useState(0);
 
@@ -29,35 +31,40 @@ const Testimonials = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="font-body text-sm tracking-[0.35em] uppercase text-muted-foreground mb-12"
+          className="font-body text-xs tracking-[0.4em] uppercase text-muted-foreground mb-14"
         >
           Kind Words
         </motion.p>
 
-        <motion.div
-          key={current}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <blockquote className="font-display text-2xl md:text-3xl text-foreground italic leading-relaxed mb-8">
-            "{testimonials[current].quote}"
-          </blockquote>
-          <p className="font-body text-foreground text-sm tracking-widest uppercase">
-            {testimonials[current].name}
-          </p>
-          <p className="font-body text-muted-foreground text-xs tracking-wider uppercase mt-1">
-            {testimonials[current].context}
-          </p>
-        </motion.div>
+        <div className="min-h-[200px] flex items-center justify-center">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5, ease: snappy as unknown as number[] }}
+            >
+              <blockquote className="font-display text-2xl md:text-4xl text-foreground italic leading-relaxed mb-8">
+                "{testimonials[current].quote}"
+              </blockquote>
+              <p className="font-body text-foreground text-sm tracking-widest uppercase">
+                {testimonials[current].name}
+              </p>
+              <p className="font-body text-muted-foreground text-xs tracking-wider uppercase mt-1">
+                {testimonials[current].context}
+              </p>
+            </motion.div>
+          </AnimatePresence>
+        </div>
 
-        <div className="flex justify-center gap-3 mt-10">
+        <div className="flex justify-center gap-3 mt-12">
           {testimonials.map((_, i) => (
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                i === current ? "bg-foreground w-6" : "bg-muted-foreground/30"
+              className={`h-[2px] transition-all duration-500 ${
+                i === current ? "bg-foreground w-10" : "bg-muted-foreground/20 w-6 hover:bg-muted-foreground/40"
               }`}
               aria-label={`View testimonial ${i + 1}`}
             />

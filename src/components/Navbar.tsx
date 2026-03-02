@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import MagneticWrap from "./MagneticWrap";
 
 const navItems = [
   { label: "Home", path: "/" },
@@ -10,87 +10,118 @@ const navItems = [
   { label: "Contact", path: "/contact" },
 ];
 
+const snappy = [0.76, 0, 0.24, 1] as const;
+
 const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const location = useLocation();
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  useEffect(() => setOpen(false), [location]);
 
-  useEffect(() => setMobileOpen(false), [location]);
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
 
   return (
-    <motion.header
-      initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "bg-background/90 backdrop-blur-md border-b border-border" : "bg-transparent"
-      }`}
-    >
-      <nav className="container mx-auto flex items-center justify-between px-6 py-5">
-        <Link to="/" className="font-display text-2xl tracking-wide text-foreground hover:text-primary transition-colors">
-          Tony Hardy
-        </Link>
-
-        <ul className="hidden md:flex items-center gap-10">
-          {navItems.map((item) => (
-            <li key={item.path}>
-              <Link
-                to={item.path}
-                className={`font-body text-sm tracking-widest uppercase transition-colors duration-300 ${
-                  location.pathname === item.path
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {item.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden text-foreground"
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </nav>
-
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background/95 backdrop-blur-md border-b border-border overflow-hidden"
+    <>
+      {/* Floating island pill — bottom center */}
+      <motion.nav
+        initial={{ y: 40, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.8, ease: snappy as unknown as number[] }}
+        className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50"
+      >
+        <MagneticWrap strength={0.15}>
+          <button
+            onClick={() => setOpen(!open)}
+            className="relative flex items-center gap-3 bg-foreground/10 backdrop-blur-xl border border-border px-6 py-3 group hover:bg-foreground/15 transition-colors duration-300"
+            aria-label="Toggle navigation"
           >
-            <ul className="flex flex-col items-center gap-6 py-8">
-              {navItems.map((item) => (
-                <li key={item.path}>
-                  <Link
-                    to={item.path}
-                    className={`font-body text-sm tracking-widest uppercase ${
-                      location.pathname === item.path
-                        ? "text-primary"
-                        : "text-muted-foreground"
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
+            <span className="font-body text-xs tracking-[0.3em] uppercase text-foreground">
+              {open ? "Close" : "Menu"}
+            </span>
+            <div className="flex flex-col gap-[3px]">
+              <motion.span
+                animate={open ? { rotate: 45, y: 4.5 } : { rotate: 0, y: 0 }}
+                transition={{ duration: 0.3, ease: snappy as unknown as number[] }}
+                className="block w-4 h-[1px] bg-foreground"
+              />
+              <motion.span
+                animate={open ? { opacity: 0 } : { opacity: 1 }}
+                transition={{ duration: 0.15 }}
+                className="block w-4 h-[1px] bg-foreground"
+              />
+              <motion.span
+                animate={open ? { rotate: -45, y: -4.5 } : { rotate: 0, y: 0 }}
+                transition={{ duration: 0.3, ease: snappy as unknown as number[] }}
+                className="block w-4 h-[1px] bg-foreground"
+              />
+            </div>
+          </button>
+        </MagneticWrap>
+      </motion.nav>
+
+      {/* Full-screen overlay menu */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5, ease: snappy as unknown as number[] }}
+            className="fixed inset-0 z-40 bg-background/95 backdrop-blur-2xl flex flex-col items-center justify-center"
+          >
+            <Link
+              to="/"
+              className="absolute top-8 left-8 font-display text-xl text-foreground"
+            >
+              Tony Hardy
+            </Link>
+
+            <ul className="flex flex-col items-center gap-2">
+              {navItems.map((item, i) => (
+                <motion.li
+                  key={item.path}
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 20 }}
+                  transition={{
+                    delay: i * 0.08,
+                    duration: 0.5,
+                    ease: snappy as unknown as number[],
+                  }}
+                >
+                  <MagneticWrap strength={0.2}>
+                    <Link
+                      to={item.path}
+                      className={`font-display text-5xl md:text-7xl transition-colors duration-300 ${
+                        location.pathname === item.path
+                          ? "text-foreground"
+                          : "text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  </MagneticWrap>
+                </motion.li>
               ))}
             </ul>
+
+            <motion.a
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              href="mailto:tonyhardy1@hotmail.com"
+              className="absolute bottom-8 font-body text-xs tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors"
+            >
+              tonyhardy1@hotmail.com
+            </motion.a>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </>
   );
 };
 
