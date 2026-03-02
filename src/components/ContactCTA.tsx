@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import MagneticWrap from "./MagneticWrap";
 
-const snappy = [0.76, 0, 0.24, 1] as const;
+const ease = [0.76, 0, 0.24, 1] as [number, number, number, number];
 
 const ContactCTA = () => {
   return (
@@ -12,7 +12,7 @@ const ContactCTA = () => {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: snappy as unknown as number[] }}
+          transition={{ duration: 0.8, ease }}
         >
           <p className="font-body text-xs tracking-[0.4em] uppercase text-muted-foreground mb-6">Commissions & Prints</p>
           <h2 className="font-display text-5xl md:text-7xl text-foreground mb-4 leading-[0.9]">

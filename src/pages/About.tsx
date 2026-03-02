@@ -2,10 +2,9 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactCTA from "@/components/ContactCTA";
-import MagneticWrap from "@/components/MagneticWrap";
 import aboutPhoto from "@/assets/about-tony.jpg";
 
-const snappy = [0.76, 0, 0.24, 1] as const;
+const ease = [0.76, 0, 0.24, 1] as [number, number, number, number];
 
 const About = () => {
   return (
@@ -16,7 +15,7 @@ const About = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: snappy as unknown as number[] }}
+            transition={{ duration: 0.8, ease }}
             className="mb-20"
           >
             <p className="font-body text-xs tracking-[0.4em] uppercase text-muted-foreground mb-4">About</p>
@@ -30,7 +29,7 @@ const About = () => {
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: snappy as unknown as number[] }}
+              transition={{ duration: 0.8, delay: 0.2, ease }}
             >
               <img
                 src={aboutPhoto}
@@ -42,7 +41,7 @@ const About = () => {
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.35, ease: snappy as unknown as number[] }}
+              transition={{ duration: 0.8, delay: 0.35, ease }}
               className="space-y-6"
             >
               <h2 className="font-display text-3xl md:text-4xl text-foreground leading-tight">

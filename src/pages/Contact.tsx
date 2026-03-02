@@ -11,7 +11,7 @@ const steps = [
   { key: "message", prompt: "Here's a bit more detail", placeholder: "Tell me everything…" },
 ];
 
-const snappy = [0.76, 0, 0.24, 1] as const;
+const ease = [0.76, 0, 0.24, 1] as [number, number, number, number];
 
 const Contact = () => {
   const [step, setStep] = useState(0);
@@ -46,7 +46,6 @@ const Contact = () => {
       <Navbar />
       <section className="min-h-screen flex flex-col items-center justify-center px-6">
         <div className="w-full max-w-3xl">
-          {/* Progress */}
           <div className="flex gap-2 mb-16">
             {steps.map((_, i) => (
               <div
@@ -64,14 +63,12 @@ const Contact = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5, ease: snappy as unknown as number[] }}
+              transition={{ duration: 0.5, ease }}
             >
-              {/* Prompt label */}
               <p className="font-display text-3xl md:text-5xl text-foreground mb-8 leading-tight">
                 {currentStep.prompt}
               </p>
 
-              {/* Input */}
               {currentStep.key === "message" ? (
                 <textarea
                   autoFocus
@@ -94,7 +91,6 @@ const Contact = () => {
                 />
               )}
 
-              {/* Actions */}
               <div className="flex items-center justify-between mt-10">
                 <div className="flex gap-4">
                   {step > 0 && (
@@ -125,7 +121,6 @@ const Contact = () => {
           </AnimatePresence>
         </div>
 
-        {/* Email fallback */}
         <motion.a
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

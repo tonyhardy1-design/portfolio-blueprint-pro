@@ -10,7 +10,7 @@ const navItems = [
   { label: "Contact", path: "/contact" },
 ];
 
-const snappy = [0.76, 0, 0.24, 1] as const;
+const ease = [0.76, 0, 0.24, 1] as [number, number, number, number];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -18,7 +18,6 @@ const Navbar = () => {
 
   useEffect(() => setOpen(false), [location]);
 
-  // Lock body scroll when menu is open
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
@@ -26,11 +25,10 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Floating island pill — bottom center */}
       <motion.nav
         initial={{ y: 40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.8, ease: snappy as unknown as number[] }}
+        transition={{ delay: 1.2, duration: 0.8, ease }}
         className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50"
       >
         <MagneticWrap strength={0.15}>
@@ -45,7 +43,7 @@ const Navbar = () => {
             <div className="flex flex-col gap-[3px]">
               <motion.span
                 animate={open ? { rotate: 45, y: 4.5 } : { rotate: 0, y: 0 }}
-                transition={{ duration: 0.3, ease: snappy as unknown as number[] }}
+                transition={{ duration: 0.3, ease }}
                 className="block w-4 h-[1px] bg-foreground"
               />
               <motion.span
@@ -55,7 +53,7 @@ const Navbar = () => {
               />
               <motion.span
                 animate={open ? { rotate: -45, y: -4.5 } : { rotate: 0, y: 0 }}
-                transition={{ duration: 0.3, ease: snappy as unknown as number[] }}
+                transition={{ duration: 0.3, ease }}
                 className="block w-4 h-[1px] bg-foreground"
               />
             </div>
@@ -63,20 +61,16 @@ const Navbar = () => {
         </MagneticWrap>
       </motion.nav>
 
-      {/* Full-screen overlay menu */}
       <AnimatePresence>
         {open && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.5, ease: snappy as unknown as number[] }}
+            transition={{ duration: 0.5, ease }}
             className="fixed inset-0 z-40 bg-background/95 backdrop-blur-2xl flex flex-col items-center justify-center"
           >
-            <Link
-              to="/"
-              className="absolute top-8 left-8 font-display text-xl text-foreground"
-            >
+            <Link to="/" className="absolute top-8 left-8 font-display text-xl text-foreground">
               Tony Hardy
             </Link>
 
@@ -87,11 +81,7 @@ const Navbar = () => {
                   initial={{ opacity: 0, y: 40 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 20 }}
-                  transition={{
-                    delay: i * 0.08,
-                    duration: 0.5,
-                    ease: snappy as unknown as number[],
-                  }}
+                  transition={{ delay: i * 0.08, duration: 0.5, ease }}
                 >
                   <MagneticWrap strength={0.2}>
                     <Link

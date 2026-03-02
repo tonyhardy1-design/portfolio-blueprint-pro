@@ -4,7 +4,7 @@ import { useRef } from "react";
 import heroImage from "@/assets/hero-bw.jpg";
 import MagneticWrap from "./MagneticWrap";
 
-const snappy = [0.76, 0, 0.24, 1] as const;
+const ease = [0.76, 0, 0.24, 1] as [number, number, number, number];
 
 const HeroSection = () => {
   const ref = useRef<HTMLElement>(null);
@@ -22,7 +22,6 @@ const HeroSection = () => {
       className="relative h-screen w-full overflow-hidden"
       style={{ backgroundColor: "hsl(var(--deep-black))" }}
     >
-      {/* Background image — no heavy overlay, blend-mode handles legibility */}
       <motion.div className="absolute inset-0" style={{ y: imageY }}>
         <img
           src={heroImage}
@@ -31,25 +30,22 @@ const HeroSection = () => {
         />
       </motion.div>
 
-      {/* Minimal gradient at bottom only for transition to next section */}
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-background to-transparent" />
 
-      {/* Text with mix-blend-mode: difference */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center blend-difference">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.8, ease: snappy as unknown as number[] }}
+          transition={{ delay: 0.3, duration: 0.8, ease }}
           className="font-body text-xs tracking-[0.5em] uppercase text-primary mb-8"
         >
           Black & White Photography
         </motion.p>
 
-        {/* Interlocking typography: sans + serif italic */}
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.9, ease: snappy as unknown as number[] }}
+          transition={{ delay: 0.5, duration: 0.9, ease }}
           className="text-primary leading-[0.9] max-w-5xl"
         >
           <motion.span
@@ -66,7 +62,7 @@ const HeroSection = () => {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 0.8, ease: snappy as unknown as number[] }}
+          transition={{ delay: 0.9, duration: 0.8, ease }}
           className="font-body text-primary/60 text-base md:text-lg mt-8 max-w-lg"
         >
           Street · Portrait · Architecture · Life stripped to light and shadow.
@@ -75,7 +71,7 @@ const HeroSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2, duration: 0.8, ease: snappy as unknown as number[] }}
+          transition={{ delay: 1.2, duration: 0.8, ease }}
           className="mt-12"
         >
           <MagneticWrap strength={0.25}>
@@ -89,7 +85,6 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

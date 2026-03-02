@@ -19,7 +19,7 @@ const galleries = [
   { src: bwStreet2, title: "Innocence", category: "Street" },
 ];
 
-const snappy = [0.76, 0, 0.24, 1] as const;
+const ease = [0.76, 0, 0.24, 1] as [number, number, number, number];
 
 const CursorTooltip = ({ title, category }: { title: string; category: string }) => {
   const x = useMotionValue(0);
@@ -39,18 +39,17 @@ const CursorTooltip = ({ title, category }: { title: string; category: string })
   return (
     <div
       ref={containerRef}
-      className="relative"
+      className="absolute inset-0 z-10"
       onMouseMove={handleMove}
       onMouseEnter={() => setShow(true)}
       onMouseLeave={() => setShow(false)}
     >
       {show && (
         <motion.div
-          className="absolute z-20 pointer-events-none px-3 py-1.5 bg-foreground text-background font-body text-xs tracking-widest uppercase whitespace-nowrap"
+          className="absolute pointer-events-none px-3 py-1.5 bg-foreground text-background font-body text-xs tracking-widest uppercase whitespace-nowrap"
           style={{ x: springX, y: springY }}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.8 }}
         >
           {category} · {title}
         </motion.div>
@@ -69,11 +68,10 @@ const PortfolioGrid = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: snappy as unknown as number[] }}
+          transition={{ duration: 0.8, ease }}
           className="mb-20"
         >
           <p className="font-body text-sm tracking-[0.35em] uppercase text-muted-foreground mb-4">Selected Work</p>
-          {/* Macro typography — oversized heading */}
           <h2 className="font-display text-6xl md:text-8xl lg:text-[9rem] text-foreground leading-[0.85] -ml-1 md:-ml-3">
             Recent<br />
             <span className="italic text-muted-foreground">Work</span>
@@ -87,7 +85,7 @@ const PortfolioGrid = () => {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.7, delay: i * 0.08, ease: snappy as unknown as number[] }}
+              transition={{ duration: 0.7, delay: i * 0.08, ease }}
               style={{ skewY: skew }}
               className="break-inside-avoid relative overflow-hidden cursor-pointer group"
             >

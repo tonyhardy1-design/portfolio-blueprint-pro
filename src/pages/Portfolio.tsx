@@ -20,7 +20,7 @@ const galleries = [
   { src: bwStreet2, title: "Innocence", category: "Street" },
 ];
 
-const snappy = [0.76, 0, 0.24, 1] as const;
+const ease = [0.76, 0, 0.24, 1] as [number, number, number, number];
 
 const CursorLabel = ({ title, category }: { title: string; category: string }) => {
   const x = useMotionValue(0);
@@ -70,7 +70,7 @@ const Portfolio = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: snappy as unknown as number[] }}
+            transition={{ duration: 0.8, ease }}
             className="mb-20"
           >
             <p className="font-body text-xs tracking-[0.4em] uppercase text-muted-foreground mb-4">Portfolio</p>
@@ -86,7 +86,7 @@ const Portfolio = () => {
                 key={i}
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: i * 0.08, ease: snappy as unknown as number[] }}
+                transition={{ duration: 0.7, delay: i * 0.08, ease }}
                 style={{ skewY: skew }}
                 className="break-inside-avoid group relative overflow-hidden cursor-pointer"
               >

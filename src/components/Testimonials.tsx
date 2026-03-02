@@ -19,7 +19,7 @@ const testimonials = [
   },
 ];
 
-const snappy = [0.76, 0, 0.24, 1] as const;
+const ease = [0.76, 0, 0.24, 1] as [number, number, number, number];
 
 const Testimonials = () => {
   const [current, setCurrent] = useState(0);
@@ -43,7 +43,7 @@ const Testimonials = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5, ease: snappy as unknown as number[] }}
+              transition={{ duration: 0.5, ease }}
             >
               <blockquote className="font-display text-2xl md:text-4xl text-foreground italic leading-relaxed mb-8">
                 "{testimonials[current].quote}"

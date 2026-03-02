@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import aboutPhoto from "@/assets/about-tony.jpg";
 import MagneticWrap from "./MagneticWrap";
 
-const snappy = [0.76, 0, 0.24, 1] as const;
+const ease = [0.76, 0, 0.24, 1] as [number, number, number, number];
 
 const AboutTeaser = () => {
   return (
@@ -13,7 +13,7 @@ const AboutTeaser = () => {
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: snappy as unknown as number[] }}
+          transition={{ duration: 0.8, ease }}
           className="overflow-hidden"
         >
           <img
@@ -27,7 +27,7 @@ const AboutTeaser = () => {
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, delay: 0.15, ease: snappy as unknown as number[] }}
+          transition={{ duration: 0.8, delay: 0.15, ease }}
         >
           <p className="font-body text-xs tracking-[0.4em] uppercase text-muted-foreground mb-4">The Photographer</p>
           <h2 className="font-display text-5xl md:text-6xl text-foreground mb-6 leading-[0.9]">
