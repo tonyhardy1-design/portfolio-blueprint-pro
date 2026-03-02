@@ -14,6 +14,7 @@ export default {
   	},
   	extend: {
   		colors: {
+  			'deep-black': 'hsl(var(--deep-black))',
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',
