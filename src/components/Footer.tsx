@@ -1,29 +1,32 @@
 import { Link } from "react-router-dom";
-import MagneticWrap from "./MagneticWrap";
 
 const Footer = () => {
   return (
-    <footer className="py-16 px-6 border-t border-border">
-      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-        <Link to="/" className="font-display text-xl text-foreground">
+    <footer className="py-12 px-6 border-t border-border">
+      <div className="container mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <Link to="/" className="font-display text-base text-foreground">
           Tony Hardy
         </Link>
 
-        <div className="flex items-center gap-10">
-          <MagneticWrap strength={0.3}>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="font-body text-xs tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors duration-300">
-              Instagram
-            </a>
-          </MagneticWrap>
-          <MagneticWrap strength={0.3}>
-            <a href="mailto:tonyhardy1@hotmail.com" className="font-body text-xs tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors duration-300">
-              Email
-            </a>
-          </MagneticWrap>
+        <div className="flex items-center gap-8">
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-body text-[11px] tracking-[0.15em] uppercase text-muted-foreground hover:text-foreground transition-opacity duration-300"
+          >
+            Instagram
+          </a>
+          <a
+            href="mailto:tonyhardy1@hotmail.com"
+            className="font-body text-[11px] tracking-[0.15em] uppercase text-muted-foreground hover:text-foreground transition-opacity duration-300"
+          >
+            Email
+          </a>
         </div>
 
-        <p className="font-body text-xs text-muted-foreground/50">
-          © {new Date().getFullYear()} Tony Hardy
+        <p className="font-body text-[11px] text-muted-foreground/50">
+          © {new Date().getFullYear()}
         </p>
       </div>
     </footer>
