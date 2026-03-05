@@ -1,20 +1,8 @@
-import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import MagneticWrap from "@/components/MagneticWrap";
-
-const steps = [
-  { key: "name", prompt: "Hi, my name is", placeholder: "Your name" },
-  { key: "email", prompt: "You can reach me at", placeholder: "your@email.com" },
-  { key: "subject", prompt: "I'd like to talk about", placeholder: "Portraits, prints, collaboration…" },
-  { key: "message", prompt: "Here's a bit more detail", placeholder: "Tell me everything…" },
-];
-
-const ease = [0.76, 0, 0.24, 1] as [number, number, number, number];
 
 const Contact = () => {
-  const [step, setStep] = useState(0);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -22,115 +10,72 @@ const Contact = () => {
     message: "",
   });
 
-  const currentStep = steps[step];
-  const isLast = step === steps.length - 1;
-  const value = formData[currentStep.key as keyof typeof formData];
-
-  const handleNext = () => {
-    if (isLast) {
-      window.location.href = `mailto:tonyhardy1@hotmail.com?subject=${encodeURIComponent(formData.subject || "Photography Inquiry")}&body=${encodeURIComponent(`From: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`)}`;
-    } else {
-      setStep(step + 1);
-    }
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    window.location.href = `mailto:tonyhardy1@hotmail.com?subject=${encodeURIComponent(formData.subject || "Photography Inquiry")}&body=${encodeURIComponent(`From: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`)}`;
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
-      if (value.trim()) handleNext();
-    }
-  };
+  const inputClass = "w-full bg-transparent border-b border-border py-3 font-body text-sm text-foreground placeholder:text-muted-foreground/40 outline-none focus:border-foreground transition-colors duration-300";
 
   return (
     <main>
       <Navbar />
-      <section className="min-h-screen flex flex-col items-center justify-center px-6">
-        <div className="w-full max-w-3xl">
-          <div className="flex gap-2 mb-16">
-            {steps.map((_, i) => (
-              <div
-                key={i}
-                className={`h-[2px] flex-1 transition-all duration-500 ${
-                  i <= step ? "bg-foreground" : "bg-border"
-                }`}
-              />
-            ))}
+      <section className="pt-24 pb-20 px-6">
+        <div className="container mx-auto max-w-xl">
+          <div className="py-16 md:py-24">
+            <h1 className="font-display text-4xl md:text-5xl text-foreground mb-3">Contact</h1>
+            <p className="font-body text-sm text-muted-foreground">
+              For commissions, prints, or just to say hello.
+            </p>
           </div>
 
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={step}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5, ease }}
+          <form onSubmit={handleSubmit} className="space-y-8">
+            <input
+              type="text"
+              placeholder="Name"
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              className={inputClass}
+              required
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              className={inputClass}
+              required
+            />
+            <input
+              type="text"
+              placeholder="Subject"
+              value={formData.subject}
+              onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+              className={inputClass}
+            />
+            <textarea
+              placeholder="Message"
+              rows={5}
+              value={formData.message}
+              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              className={`${inputClass} resize-none`}
+              required
+            />
+
+            <button
+              type="submit"
+              className="font-body text-[11px] tracking-[0.15em] uppercase text-muted-foreground border-b border-muted-foreground/30 pb-1 hover:text-foreground hover:border-foreground transition-all duration-300"
             >
-              <p className="font-display text-3xl md:text-5xl text-foreground mb-8 leading-tight">
-                {currentStep.prompt}
-              </p>
+              Send message
+            </button>
+          </form>
 
-              {currentStep.key === "message" ? (
-                <textarea
-                  autoFocus
-                  rows={4}
-                  value={value}
-                  onChange={(e) => setFormData({ ...formData, [currentStep.key]: e.target.value })}
-                  onKeyDown={handleKeyDown}
-                  placeholder={currentStep.placeholder}
-                  className="w-full bg-transparent border-b-2 border-border focus:border-foreground py-4 font-body text-xl md:text-2xl text-foreground placeholder:text-muted-foreground/30 outline-none transition-colors duration-300 resize-none"
-                />
-              ) : (
-                <input
-                  autoFocus
-                  type={currentStep.key === "email" ? "email" : "text"}
-                  value={value}
-                  onChange={(e) => setFormData({ ...formData, [currentStep.key]: e.target.value })}
-                  onKeyDown={handleKeyDown}
-                  placeholder={currentStep.placeholder}
-                  className="w-full bg-transparent border-b-2 border-border focus:border-foreground py-4 font-body text-xl md:text-2xl text-foreground placeholder:text-muted-foreground/30 outline-none transition-colors duration-300"
-                />
-              )}
-
-              <div className="flex items-center justify-between mt-10">
-                <div className="flex gap-4">
-                  {step > 0 && (
-                    <button
-                      onClick={() => setStep(step - 1)}
-                      className="font-body text-xs tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      ← Back
-                    </button>
-                  )}
-                </div>
-
-                <MagneticWrap strength={0.2}>
-                  <button
-                    onClick={handleNext}
-                    disabled={!value.trim()}
-                    className="bg-foreground text-background px-8 py-3 font-body text-sm tracking-widest uppercase disabled:opacity-20 hover:bg-muted-foreground transition-all duration-300"
-                  >
-                    {isLast ? "Send" : "Continue →"}
-                  </button>
-                </MagneticWrap>
-              </div>
-
-              <p className="font-body text-xs text-muted-foreground/50 mt-6">
-                Press Enter to continue
-              </p>
-            </motion.div>
-          </AnimatePresence>
+          <p className="font-body text-[11px] text-muted-foreground/50 mt-16">
+            Or email directly — <a href="mailto:tonyhardy1@hotmail.com" className="hover:text-foreground transition-opacity duration-300">tonyhardy1@hotmail.com</a>
+          </p>
         </div>
-
-        <motion.a
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-          href="mailto:tonyhardy1@hotmail.com"
-          className="absolute bottom-16 font-body text-xs tracking-widest uppercase text-muted-foreground/40 hover:text-foreground transition-colors"
-        >
-          or email directly → tonyhardy1@hotmail.com
-        </motion.a>
       </section>
+      <Footer />
     </main>
   );
 };

@@ -1,55 +1,36 @@
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import aboutPhoto from "@/assets/about-tony.jpg";
-import MagneticWrap from "./MagneticWrap";
-
-const ease = [0.76, 0, 0.24, 1] as [number, number, number, number];
 
 const AboutTeaser = () => {
   return (
-    <section className="py-24 md:py-32 px-6 bg-secondary">
-      <div className="container mx-auto grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease }}
-          className="overflow-hidden"
-        >
+    <section className="py-20 md:py-32 px-6">
+      <div className="container mx-auto grid md:grid-cols-2 gap-12 md:gap-20 items-start">
+        <div>
           <img
             src={aboutPhoto}
-            alt="Tony Hardy, black and white photographer"
-            className="w-full max-w-md mx-auto object-cover aspect-[3/4]"
+            alt="Tony Hardy"
+            className="w-full max-w-sm object-cover aspect-[3/4]"
           />
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, delay: 0.15, ease }}
-        >
-          <p className="font-body text-xs tracking-[0.4em] uppercase text-muted-foreground mb-4">The Photographer</p>
-          <h2 className="font-display text-5xl md:text-6xl text-foreground mb-6 leading-[0.9]">
-            Tony<br /><span className="italic text-muted-foreground">Hardy</span>
+        <div className="md:pt-12">
+          <p className="font-body text-[11px] tracking-[0.15em] uppercase text-muted-foreground mb-3">About</p>
+          <h2 className="font-display text-3xl md:text-4xl text-foreground mb-6 leading-[1.2]">
+            I photograph what most people walk past
           </h2>
-          <p className="font-body text-secondary-foreground leading-relaxed mb-4">
-            I shoot exclusively in black and white. No colour, no distractions —
-            just light, shadow, and the raw essence of a moment.
+          <p className="font-body text-sm text-muted-foreground leading-relaxed mb-4">
+            I work exclusively in black and white. Removing colour strips a scene to its essence — composition, light, texture, and the quiet stories that unfold on everyday streets.
           </p>
-          <p className="font-body text-secondary-foreground leading-relaxed mb-10">
-            From the geometry of city streets to the intimacy of a portrait session,
-            every frame is a study in contrast and emotion.
+          <p className="font-body text-sm text-muted-foreground leading-relaxed mb-8">
+            From the geometry of city architecture to candid moments in cafés, every frame is a study in contrast and stillness.
           </p>
-          <MagneticWrap strength={0.2} className="inline-block">
-            <Link
-              to="/about"
-              className="inline-block text-foreground font-body text-sm tracking-widest uppercase border-b border-foreground pb-1 hover:text-muted-foreground hover:border-muted-foreground transition-all duration-300"
-            >
-              More About Me
-            </Link>
-          </MagneticWrap>
-        </motion.div>
+          <Link
+            to="/about"
+            className="font-body text-[11px] tracking-[0.15em] uppercase text-muted-foreground border-b border-muted-foreground/30 pb-1 hover:text-foreground hover:border-foreground transition-all duration-300"
+          >
+            Read more
+          </Link>
+        </div>
       </div>
     </section>
   );
