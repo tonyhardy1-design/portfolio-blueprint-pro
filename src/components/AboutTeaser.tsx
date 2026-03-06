@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import aboutPhoto from "@/assets/about-tony.jpg";
 
 const AboutTeaser = () => {
@@ -16,20 +15,19 @@ const AboutTeaser = () => {
         <div className="md:pt-12">
           <p className="font-body text-[11px] tracking-[0.15em] uppercase text-muted-foreground mb-3">About</p>
           <h2 className="font-display text-3xl md:text-4xl text-foreground mb-6 leading-[1.2]">
-            I photograph what most people walk past
+            I photograph what most people walk past.
           </h2>
-          <p className="font-body text-sm text-muted-foreground leading-relaxed mb-4">
-            I work exclusively in black and white. Removing colour strips a scene to its essence — composition, light, texture, and the quiet stories that unfold on everyday streets.
-          </p>
-          <p className="font-body text-sm text-muted-foreground leading-relaxed mb-8">
-            From the geometry of city architecture to candid moments in cafés, every frame is a study in contrast and stillness.
-          </p>
-          <Link
-            to="/about"
-            className="font-body text-[11px] tracking-[0.15em] uppercase text-muted-foreground border-b border-muted-foreground/30 pb-1 hover:text-foreground hover:border-foreground transition-all duration-300"
-          >
-            Read more
-          </Link>
+          <div className="space-y-4">
+            <p className="font-body text-sm text-muted-foreground leading-[1.8]">
+              I'm Tony Hardy. My work explores the quiet dialogue between urban architecture and the life that moves through it. I am drawn to the moments that often go unnoticed—the fleeting interactions on a street corner or the way light hits a building's facade just before sunset.
+            </p>
+            <p className="font-body text-sm text-muted-foreground leading-[1.8]">
+              I shoot in both colour and black and white, letting the subject dictate the medium. Whether it is highlighting the stark geometry of a structure in monochrome or capturing the vivid atmosphere of a candid street scene in colour, my goal remains the same: to document the overlooked rhythm of the city.
+            </p>
+            <p className="font-body text-sm text-muted-foreground leading-[1.8]">
+              From the stillness of architectural forms to the spontaneity of street photography, every frame is an attempt to pause time and reveal the stories hiding in plain sight.
+            </p>
+          </div>
         </div>
       </div>
     </section>

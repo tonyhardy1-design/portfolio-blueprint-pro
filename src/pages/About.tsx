@@ -23,13 +23,16 @@ const About = () => {
 
           <div className="max-w-xl space-y-6">
             <p className="font-body text-sm text-foreground leading-[1.8]">
-              I'm Tony Hardy — a photographer who works exclusively in black and white. I believe that removing colour strips a scene down to its essence: composition, light, texture, and emotion become everything.
+              I photograph what most people walk past.
             </p>
             <p className="font-body text-sm text-muted-foreground leading-[1.8]">
-              My work spans street photography, portraiture, architecture, and urban landscapes. I'm drawn to the tension between stillness and movement, the play of hard shadows and soft light, and the quiet stories that unfold on everyday streets.
+              I'm Tony Hardy. My work explores the quiet dialogue between urban architecture and the life that moves through it. I am drawn to the moments that often go unnoticed—the fleeting interactions on a street corner or the way light hits a building's facade just before sunset.
             </p>
             <p className="font-body text-sm text-muted-foreground leading-[1.8]">
-              Whether I'm shooting candid moments on a rainy city corner or a carefully lit portrait in the studio, the goal is always the same: to create images with permanence — photographs that feel as relevant in fifty years as they do today.
+              I shoot in both colour and black and white, letting the subject dictate the medium. Whether it is highlighting the stark geometry of a structure in monochrome or capturing the vivid atmosphere of a candid street scene in colour, my goal remains the same: to document the overlooked rhythm of the city.
+            </p>
+            <p className="font-body text-sm text-muted-foreground leading-[1.8]">
+              From the stillness of architectural forms to the spontaneity of street photography, every frame is an attempt to pause time and reveal the stories hiding in plain sight.
             </p>
           </div>
 
