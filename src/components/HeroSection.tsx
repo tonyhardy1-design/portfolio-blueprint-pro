@@ -17,7 +17,7 @@ const HeroSection = () => {
         <img
           src={heroImage}
           alt="Street scene in black and white"
-          className="w-full h-[60vh] md:h-[75vh] object-cover"
+          className="w-full h-auto object-contain"
         />
       </div>
     </section>
