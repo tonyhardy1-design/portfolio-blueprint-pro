@@ -7,21 +7,15 @@ interface SplashScreenProps {
 const SplashScreen = ({ onComplete }: SplashScreenProps) => {
   return (
     <motion.div
-      className="fixed inset-0 z-50 flex items-center justify-center"
-      initial={{ backgroundColor: "hsl(0 0% 0%)" }}
-      animate={{ backgroundColor: ["hsl(0 0% 0%)", "hsl(0 0% 0%)", "hsl(0 0% 97%)"] }}
-      transition={{ duration: 4, times: [0, 0.5, 1], ease: "easeInOut" }}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-background"
     >
       <motion.h1
-        className="font-display italic text-4xl md:text-6xl lg:text-7xl select-none"
-        initial={{ opacity: 0, color: "hsl(0 0% 97%)" }}
-        animate={{
-          opacity: [0, 1, 1, 1, 0],
-          color: ["hsl(0 0% 97%)", "hsl(0 0% 97%)", "hsl(0 0% 97%)", "hsl(0 0% 8%)", "hsl(0 0% 8%)"],
-        }}
+        className="font-display italic text-5xl md:text-7xl lg:text-8xl select-none text-foreground"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: [0, 1, 1, 0] }}
         transition={{
-          duration: 4,
-          times: [0, 0.2, 0.5, 0.75, 1],
+          duration: 5,
+          times: [0, 0.25, 0.65, 1],
           ease: "easeInOut",
         }}
         onAnimationComplete={() => onComplete()}
