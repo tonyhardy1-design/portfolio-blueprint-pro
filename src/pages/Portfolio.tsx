@@ -28,7 +28,7 @@ const Portfolio = () => {
           <div className="py-16 md:py-24 mb-8">
             <h1 className="font-display text-4xl md:text-5xl text-foreground mb-3">The work</h1>
             <p className="font-body text-sm text-muted-foreground max-w-md">
-              A collection of street photography, portraits, and urban studies. All shot in monochrome.
+              A collection of street photography, architecture, and daily life.
             </p>
           </div>
 
