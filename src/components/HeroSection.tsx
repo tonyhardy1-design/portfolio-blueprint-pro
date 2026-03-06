@@ -9,7 +9,7 @@ const HeroSection = () => {
           <span className="italic text-muted-foreground">in passing light</span>
         </h1>
         <p className="font-body text-sm text-muted-foreground max-w-md leading-relaxed">
-          Street photography by Tony Hardy. Monochrome studies of urban life, architecture, and the moments between moments.
+          Street photography by Tony Hardy. A collection of studies of urban life, architecture, and the moments between moments.
         </p>
       </div>
 
