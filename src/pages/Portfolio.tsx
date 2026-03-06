@@ -32,15 +32,17 @@ const Portfolio = () => {
             </p>
           </div>
 
-          <div className="space-y-8 md:space-y-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
             {images.map((item, i) => (
-              <div key={i} className="group">
-                <img
-                  src={item.src}
-                  alt={item.alt}
-                  className="w-full object-cover transition-opacity duration-500 group-hover:opacity-90"
-                  loading="lazy"
-                />
+              <div key={i} className="group cursor-pointer">
+                <div className="overflow-hidden">
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    className="w-full h-auto object-cover transition-all duration-500 group-hover:scale-105 group-hover:shadow-lg group-hover:-translate-y-2"
+                    loading="lazy"
+                  />
+                </div>
                 <p className="font-body text-[11px] tracking-[0.15em] uppercase text-muted-foreground mt-3">
                   {item.title}
                 </p>
