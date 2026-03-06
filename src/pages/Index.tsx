@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SplashScreen from "@/components/SplashScreen";
 import Navbar from "@/components/Navbar";
@@ -9,7 +9,15 @@ import ContactCTA from "@/components/ContactCTA";
 import Footer from "@/components/Footer";
 
 const Index = () => {
-  const [showSplash, setShowSplash] = useState(true);
+  const [showSplash, setShowSplash] = useState(() => {
+    return !sessionStorage.getItem("splashShown");
+  });
+
+  useEffect(() => {
+    if (!showSplash) {
+      sessionStorage.setItem("splashShown", "true");
+    }
+  }, [showSplash]);
 
   return (
     <>
