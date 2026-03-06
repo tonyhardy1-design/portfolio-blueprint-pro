@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm">
       <div className="container mx-auto flex items-center justify-between py-6 px-6">
-        <Link to="/" className="font-display text-lg text-foreground">
+        <Link to="/" className="font-display text-lg text-foreground leading-[1.15]">
           Tony Hardy
         </Link>
 
