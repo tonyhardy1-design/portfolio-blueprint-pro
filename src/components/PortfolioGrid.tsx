@@ -1,18 +1,18 @@
 import { Link } from "react-router-dom";
-import bwPortrait1 from "@/assets/bw-portrait-1.jpg";
-import bwStreet1 from "@/assets/bw-street-1.jpg";
-import bwArch1 from "@/assets/bw-arch-1.jpg";
-import bwCandid1 from "@/assets/bw-candid-1.jpg";
-import bwUrban1 from "@/assets/bw-urban-1.jpg";
-import bwStreet2 from "@/assets/bw-street-2.jpg";
+import img1 from "@/assets/3-DSC02082.jpg";
+import img2 from "@/assets/11-DSC06524.jpg";
+import img3 from "@/assets/7-DSCF8997.jpg";
+import img4 from "@/assets/4-DSC00283.jpg";
+import img5 from "@/assets/1-DSCF1193.jpg";
+import img6 from "@/assets/16-DSCF1567.jpg";
 
 const images = [
-  { src: bwPortrait1, alt: "Portrait study in natural light" },
-  { src: bwStreet1, alt: "Pedestrian crossing in rain" },
-  { src: bwArch1, alt: "Architectural lines and shadow" },
-  { src: bwCandid1, alt: "Café scene, candid moment" },
-  { src: bwUrban1, alt: "Bridge at dawn, urban landscape" },
-  { src: bwStreet2, alt: "Child on a quiet street" },
+  { src: img1, alt: "Figures seen through a passing train window" },
+  { src: img2, alt: "St Paul's Cathedral dome at golden hour" },
+  { src: img3, alt: "An older man's hands clasped behind his back" },
+  { src: img4, alt: "Man in yellow jacket, building reflected in a van window" },
+  { src: img5, alt: "Figure walking through a colonnaded arcade" },
+  { src: img6, alt: "Two people relaxing in deckchairs on Brighton Pier" },
 ];
 
 const PortfolioGrid = () => {
