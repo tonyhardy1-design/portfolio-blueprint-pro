@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import ThemeToggle from "./ThemeToggle";
 
 const navItems = [
   { label: "Work", path: "/portfolio" },
@@ -30,6 +31,9 @@ const Navbar = () => {
               </Link>
             </li>
           ))}
+          <li>
+            <ThemeToggle />
+          </li>
         </ul>
       </div>
     </nav>

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactCTA from "@/components/ContactCTA";
+import GalleryGrid from "@/components/GalleryGrid";
 import bwPortrait1 from "@/assets/bw-portrait-1.jpg";
 import bwCandid1 from "@/assets/bw-candid-1.jpg";
 import dscf1570 from "@/assets/4-DSCF1570.jpg";
@@ -33,23 +34,7 @@ const DailyPerspectives = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-            {images.map((item, i) => (
-              <div key={i} className="group cursor-pointer">
-                <div className="overflow-hidden">
-                  <img
-                    src={item.src}
-                    alt={item.alt}
-                    className="w-full h-auto object-cover transition-all duration-500 group-hover:scale-105 group-hover:shadow-lg group-hover:-translate-y-2"
-                    loading="lazy"
-                  />
-                </div>
-                <p className="font-body text-[11px] tracking-[0.15em] uppercase text-muted-foreground mt-3">
-                  {item.title}
-                </p>
-              </div>
-            ))}
-          </div>
+          <GalleryGrid images={images} />
         </div>
       </section>
       <ContactCTA />
