@@ -21,7 +21,7 @@ const Navbar = () => {
               <Link
                 to={item.path}
                 className={`font-body text-[11px] tracking-[0.15em] uppercase transition-opacity duration-300 ${
-                  location.pathname === item.path
+                  location.pathname === item.path || location.pathname.startsWith(item.path + "/")
                     ? "text-foreground opacity-100"
                     : "text-muted-foreground opacity-60 hover:opacity-100"
                 }`}
