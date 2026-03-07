@@ -2,31 +2,31 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactCTA from "@/components/ContactCTA";
-import bwStreet1 from "@/assets/bw-street-1.jpg";
-import bwArch1 from "@/assets/bw-arch-1.jpg";
-import bwCandid1 from "@/assets/bw-candid-1.jpg";
+import streetThumb from "@/assets/bw-portrait-1.jpg";
+import archThumb from "@/assets/1-DSCF1193.jpg";
+import dailyThumb from "@/assets/6-DSCF9079.jpg";
 
 const categories = [
   {
     label: "Street Photography",
     description: "People, movement, and the unexpected moments cities offer.",
     path: "/portfolio/street",
-    image: bwStreet1,
-    alt: "Pedestrian crossing in rain",
+    image: streetThumb,
+    alt: "Skateboarder at the Southbank undercroft",
   },
   {
     label: "Architecture",
     description: "Form, structure, and the geometry of built space.",
     path: "/portfolio/architecture",
-    image: bwArch1,
-    alt: "Architectural lines and shadow",
+    image: archThumb,
+    alt: "Figure walking through a colonnaded arcade",
   },
   {
     label: "Daily Perspectives",
     description: "Quiet observations from ordinary life.",
     path: "/portfolio/daily",
-    image: bwCandid1,
-    alt: "Café scene, candid moment",
+    image: dailyThumb,
+    alt: "Families eating at Frank's Hot Dogs diner",
   },
 ];
 
