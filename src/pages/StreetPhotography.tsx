@@ -3,14 +3,20 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactCTA from "@/components/ContactCTA";
 import GalleryGrid from "@/components/GalleryGrid";
-import bwStreet1 from "@/assets/bw-street-1.jpg";
-import bwStreet2 from "@/assets/bw-street-2.jpg";
-import streetLondonEye from "@/assets/street-london-eye.jpg";
+import southbank from "@/assets/bw-portrait-1.jpg";
+import piccadilly from "@/assets/bw-arch-1.jpg";
+import transit from "@/assets/3-DSC02082.jpg";
+import lisbon from "@/assets/4-DSC00283.jpg";
+import frequency from "@/assets/13-DSC02594.jpg";
+import theCity from "@/assets/14-DSC00891.jpg";
 
 const images = [
-  { src: bwStreet1, alt: "Pedestrian crossing in rain", title: "Crossings" },
-  { src: streetLondonEye, alt: "London Eye against a clear sky", title: "Observation" },
-  { src: bwStreet2, alt: "Child on a quiet street", title: "Innocence" },
+  { src: southbank,  alt: "Skateboarder at the Southbank undercroft",        title: "Southbank"  },
+  { src: piccadilly, alt: "Crowd moving past red phone boxes, Piccadilly",    title: "Piccadilly" },
+  { src: transit,    alt: "Figures seen through a passing train window",       title: "Transit"    },
+  { src: lisbon,     alt: "Man in yellow jacket, building reflected in a van", title: "Reflection" },
+  { src: frequency,  alt: "Woman with headphones facing a large billboard",    title: "Frequency"  },
+  { src: theCity,    alt: "Man walking through the City of London, reflected in glass panels", title: "The City" },
 ];
 
 const StreetPhotography = () => {

@@ -3,12 +3,20 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactCTA from "@/components/ContactCTA";
 import GalleryGrid from "@/components/GalleryGrid";
-import bwArch1 from "@/assets/bw-arch-1.jpg";
-import bwUrban1 from "@/assets/bw-urban-1.jpg";
+import colonnade from "@/assets/1-DSCF1193.jpg";
+import eye from "@/assets/2-DSC02159.jpg";
+import passage from "@/assets/9-DSCF7477.jpg";
+import barbican from "@/assets/10-DSC06528.jpg";
+import cathedral from "@/assets/11-DSC06524.jpg";
+import fortress from "@/assets/12-DSCF5230.jpg";
 
 const images = [
-  { src: bwArch1, alt: "Architectural lines and shadow", title: "Ascent" },
-  { src: bwUrban1, alt: "Bridge at dawn", title: "Dawn Bridge" },
+  { src: colonnade, alt: "Figure walking through a colonnaded arcade",           title: "Colonnade" },
+  { src: eye,       alt: "Top of the London Eye rising into a clear sky",         title: "Eye"       },
+  { src: passage,   alt: "Dock cranes silhouetted with a plane overhead",         title: "Passage"   },
+  { src: barbican,  alt: "Barbican tower at dusk framed by trees",                title: "Barbican"  },
+  { src: cathedral, alt: "St Paul's Cathedral dome at golden hour",               title: "Cathedral" },
+  { src: fortress,  alt: "Stone fortress on a cliff seen through a window frame", title: "Fortress"  },
 ];
 
 const Architecture = () => {
