@@ -1,21 +1,8 @@
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ContactCTA from "@/components/ContactCTA";
 import GalleryGrid from "@/components/GalleryGrid";
-import sunday from "@/assets/5-DSCF9081.jpg";
-import franks from "@/assets/6-DSCF9079.jpg";
-import patience from "@/assets/7-DSCF8997.jpg";
-import firstLight from "@/assets/15-DSCF2527.jpg";
-import pier from "@/assets/16-DSCF1567.jpg";
-
-const images = [
-  { src: sunday,     alt: "Candy floss stall on the Southbank on a summer evening", title: "Sunday"      },
-  { src: franks,     alt: "Families eating at Frank's Hot Dogs diner",               title: "Frank's"     },
-  { src: patience,   alt: "An older man's hands clasped behind his back",            title: "Patience"    },
-  { src: firstLight, alt: "Newborn baby sleeping with a small bow",                  title: "First Light" },
-  { src: pier,       alt: "Two people relaxing in deckchairs on Brighton Pier",      title: "Pier"        },
-];
+import { dailyImages } from "@/data/daily";
 
 const DailyPerspectives = () => {
   return (
@@ -38,10 +25,9 @@ const DailyPerspectives = () => {
             </p>
           </div>
 
-          <GalleryGrid images={images} />
+          <GalleryGrid images={dailyImages} />
         </div>
       </section>
-      <ContactCTA />
       <Footer />
     </main>
   );

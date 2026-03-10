@@ -8,7 +8,7 @@ const AboutTeaser = () => {
           <img
             src={aboutPhoto}
             alt="Tony Hardy"
-            className="w-full max-w-sm object-cover aspect-[3/4]"
+            className="w-full max-w-sm"
           />
         </div>
 
