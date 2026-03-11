@@ -6,96 +6,52 @@
 
 @layer base {
   :root {
-    --background: 0 0% 97%;
-    --foreground: 0 0% 8%;
+    /* Warm near-white — the brand's visual signature */
+    --background: 40 12% 97%;
+    --foreground: 0 0% 9%;
 
-    --card: 0 0% 97%;
-    --card-foreground: 0 0% 8%;
+    --card: 40 12% 97%;
+    --card-foreground: 0 0% 9%;
 
-    --popover: 0 0% 97%;
-    --popover-foreground: 0 0% 8%;
+    --popover: 40 12% 97%;
+    --popover-foreground: 0 0% 9%;
 
-    --primary: 0 0% 8%;
-    --primary-foreground: 0 0% 97%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 40 12% 97%;
 
-    --secondary: 0 0% 93%;
+    --secondary: 40 8% 93%;
     --secondary-foreground: 0 0% 25%;
 
-    --muted: 0 0% 93%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 40 8% 93%;
+    --muted-foreground: 0 0% 44%;
 
-    --accent: 0 0% 93%;
-    --accent-foreground: 0 0% 8%;
+    /* Warm terracotta accent — used sparingly */
+    --accent: 28 45% 52%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 88%;
-    --input: 0 0% 88%;
-    --ring: 0 0% 8%;
+    --border: 0 0% 87%;
+    --input: 0 0% 87%;
+    --ring: 0 0% 9%;
 
     --radius: 0rem;
 
-    --sidebar-background: 0 0% 97%;
-    --sidebar-foreground: 0 0% 8%;
-    --sidebar-primary: 0 0% 8%;
-    --sidebar-primary-foreground: 0 0% 97%;
-    --sidebar-accent: 0 0% 93%;
-    --sidebar-accent-foreground: 0 0% 8%;
-    --sidebar-border: 0 0% 88%;
-    --sidebar-ring: 0 0% 8%;
+    --sidebar-background: 40 12% 97%;
+    --sidebar-foreground: 0 0% 9%;
+    --sidebar-primary: 0 0% 9%;
+    --sidebar-primary-foreground: 40 12% 97%;
+    --sidebar-accent: 40 8% 93%;
+    --sidebar-accent-foreground: 0 0% 9%;
+    --sidebar-border: 0 0% 87%;
+    --sidebar-ring: 0 0% 9%;
 
     --shadow-sm: 0px 1px 1.5px 0px hsla(0, 0%, 0%, 0.04);
     --shadow: 0px 1px 3px 0px hsla(0, 0%, 0%, 0.04);
     --shadow-md: 0px 1px 4.5px 0px hsla(0, 0%, 0%, 0.04);
     --shadow-lg: 0px 1px 7.5px 0px hsla(0, 0%, 0%, 0.04);
 
-    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
-  }
-
-  .dark {
-    --background: 0 0% 6%;
-    --foreground: 0 0% 93%;
-
-    --card: 0 0% 8%;
-    --card-foreground: 0 0% 93%;
-
-    --popover: 0 0% 8%;
-    --popover-foreground: 0 0% 93%;
-
-    --primary: 0 0% 93%;
-    --primary-foreground: 0 0% 6%;
-
-    --secondary: 0 0% 14%;
-    --secondary-foreground: 0 0% 70%;
-
-    --muted: 0 0% 14%;
-    --muted-foreground: 0 0% 55%;
-
-    --accent: 0 0% 14%;
-    --accent-foreground: 0 0% 93%;
-
-    --destructive: 0 62% 48%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 0 0% 70%;
-
-    --sidebar-background: 0 0% 8%;
-    --sidebar-foreground: 0 0% 93%;
-    --sidebar-primary: 0 0% 93%;
-    --sidebar-primary-foreground: 0 0% 6%;
-    --sidebar-accent: 0 0% 14%;
-    --sidebar-accent-foreground: 0 0% 93%;
-    --sidebar-border: 0 0% 20%;
-    --sidebar-ring: 0 0% 70%;
-
-    --shadow-sm: 0px 1px 1.5px 0px hsla(0, 0%, 0%, 0.11);
-    --shadow: 0px 1px 3px 0px hsla(0, 0%, 0%, 0.11);
-    --shadow-md: 0px 1px 4.5px 0px hsla(0, 0%, 0%, 0.11);
-    --shadow-lg: 0px 1px 7.5px 0px hsla(0, 0%, 0%, 0.11);
-    --radius: 0rem;
     --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
   }
 }
@@ -118,7 +74,7 @@
   }
 
   ::selection {
-    background: hsl(0 0% 8% / 0.12);
+    background: hsl(28 45% 52% / 0.15);
     color: hsl(var(--foreground));
   }
 }
@@ -151,13 +107,9 @@ body::after {
   height: 200%;
   z-index: 9998;
   pointer-events: none;
-  opacity: 0.035;
+  opacity: 0.028;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
   animation: grain 0.3s steps(1) infinite;
-}
-
-.dark body::after {
-  opacity: 0.065;
 }
 
 @keyframes grain {

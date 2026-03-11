@@ -1,56 +1,114 @@
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import RevealOnScroll from "@/components/RevealOnScroll";
 import aboutPhoto from "@/assets/about-tony.jpg";
+
+const disciplines = [
+  { title: "Street",       subtitle: "Documentary"  },
+  { title: "Architecture", subtitle: "Built Form"   },
+  { title: "Hands",        subtitle: "Studies"      },
+  { title: "Daily",        subtitle: "Observational"},
+];
 
 const About = () => {
   return (
     <main>
       <Navbar />
-      <section className="pt-24 pb-20 px-6">
-        <div className="container mx-auto max-w-3xl">
-          <div className="py-16 md:py-24">
-            <h1 className="font-display text-4xl md:text-5xl text-foreground mb-3">About</h1>
-          </div>
 
-          <div className="mb-16">
-            <img
-              src={aboutPhoto}
-              alt="Tony Hardy"
-              className="w-full max-w-md"
-            />
-          </div>
-
-          <div className="max-w-xl space-y-6">
-            <p className="font-body text-sm text-foreground leading-[1.8]">
-              I photograph architecture, portraiture, street scenes and everyday moments.
-            </p>
-            <p className="font-body text-sm text-muted-foreground leading-[1.8]">
-              I am Tony Hardy. My work focuses on the built environment and the people moving through it, often in situations that are easily overlooked. I am interested in ordinary scenes, quiet details and the brief intersections between place, light and daily life.
-            </p>
-            <p className="font-body text-sm text-muted-foreground leading-[1.8]">
-              I work in both colour and black and white, choosing whichever best suits the subject. Sometimes that is the clarity and restraint of architectural form. Other times it is the immediacy of a street scene or a portrait caught without performance.
-            </p>
-            <p className="font-body text-sm text-muted-foreground leading-[1.8]">
-              The aim is simple. To record things as they are, before they disappear or pass unnoticed.
-            </p>
-          </div>
-
-          <div className="flex gap-16 mt-16 pt-8 border-t border-border">
-            <div>
-              <p className="font-display text-lg text-foreground">Street</p>
-              <p className="font-body text-[11px] tracking-[0.15em] uppercase text-muted-foreground mt-1">Documentary</p>
-            </div>
-            <div>
-              <p className="font-display text-lg text-foreground">Portrait</p>
-              <p className="font-body text-[11px] tracking-[0.15em] uppercase text-muted-foreground mt-1">Studio & Natural</p>
-            </div>
-            <div>
-              <p className="font-display text-lg text-foreground">Urban</p>
-              <p className="font-body text-[11px] tracking-[0.15em] uppercase text-muted-foreground mt-1">Architecture</p>
-            </div>
-          </div>
+      {/* Full-width portrait photograph */}
+      <section className="pt-24">
+        <div className="w-full overflow-hidden" style={{ aspectRatio: "16/9" }}>
+          <img
+            src={aboutPhoto}
+            alt="Tony Hardy"
+            className="w-full h-full object-cover object-center"
+          />
         </div>
       </section>
+
+      {/* Main content */}
+      <section className="py-20 md:py-32 px-6">
+        <div className="container mx-auto">
+
+          {/* Two-column: large pullquote left, bio paragraphs right */}
+          <RevealOnScroll>
+            <div className="grid md:grid-cols-2 gap-12 md:gap-24 items-start mb-20 md:mb-28">
+              <blockquote
+                className="text-foreground leading-[1.22]"
+                style={{
+                  fontFamily: "'EB Garamond', serif",
+                  fontStyle: "italic",
+                  fontWeight: 400,
+                  fontSize: "clamp(1.7rem, 3vw, 2.8rem)",
+                }}
+              >
+                "To record things as they are,
+                <br />
+                before they disappear
+                <br />
+                or pass unnoticed."
+              </blockquote>
+
+              <div className="space-y-5 md:pt-3">
+                <p className="font-body text-sm text-foreground leading-[1.88]">
+                  I am Tony Hardy. My work focuses on the built environment and the people
+                  moving through it, often in situations that are easily overlooked.
+                </p>
+                <p className="font-body text-sm text-muted-foreground leading-[1.88]">
+                  I am interested in ordinary scenes, quiet details and the brief intersections
+                  between place, light and daily life. I work in both colour and black and white,
+                  choosing whichever best serves the subject.
+                </p>
+                <p className="font-body text-sm text-muted-foreground leading-[1.88]">
+                  Sometimes that is the clarity and restraint of architectural form. Other times
+                  it is the immediacy of a street scene or a portrait caught without performance.
+                </p>
+              </div>
+            </div>
+          </RevealOnScroll>
+
+          {/* Disciplines — 4 columns, larger scale */}
+          <RevealOnScroll delay={120}>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-10 border-t border-border mb-20 md:mb-28">
+              {disciplines.map((d) => (
+                <div key={d.title}>
+                  <p
+                    className="text-foreground mb-2"
+                    style={{
+                      fontFamily: "'EB Garamond', serif",
+                      fontWeight: 400,
+                      fontSize: "clamp(1.35rem, 2vw, 1.75rem)",
+                    }}
+                  >
+                    {d.title}
+                  </p>
+                  <p className="font-body text-[11px] tracking-[0.15em] uppercase text-muted-foreground">
+                    {d.subtitle}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </RevealOnScroll>
+
+          {/* Contact CTA */}
+          <RevealOnScroll delay={180}>
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between pt-8 border-t border-border gap-6">
+              <p className="font-body text-sm text-muted-foreground">
+                Available for commissions and print enquiries.
+              </p>
+              <Link
+                to="/contact"
+                className="font-body text-[11px] tracking-[0.18em] uppercase text-muted-foreground pb-px border-b border-muted-foreground/25 hover:text-accent hover:border-accent transition-all duration-300"
+              >
+                Get in touch →
+              </Link>
+            </div>
+          </RevealOnScroll>
+
+        </div>
+      </section>
+
       <Footer />
     </main>
   );

@@ -1,34 +1,43 @@
-import aboutPhoto from "@/assets/about-tony.jpg";
+import { Link } from "react-router-dom";
+import RevealOnScroll from "@/components/RevealOnScroll";
 
 const AboutTeaser = () => {
   return (
-    <section className="py-20 md:py-32 px-6">
-      <div className="container mx-auto grid md:grid-cols-2 gap-12 md:gap-20 items-start">
-        <div>
-          <img
-            src={aboutPhoto}
-            alt="Tony Hardy"
-            className="w-full max-w-sm"
-          />
-        </div>
+    <section className="py-24 md:py-36 px-6 border-t border-border">
+      <div className="container mx-auto">
+        <RevealOnScroll>
+          <div className="max-w-3xl">
+            <p className="font-body text-[11px] tracking-[0.15em] uppercase text-muted-foreground mb-10">
+              About
+            </p>
 
-        <div className="md:pt-12">
-          <p className="font-body text-[11px] tracking-[0.15em] uppercase text-muted-foreground mb-3">About</p>
-          <h2 className="font-display text-3xl md:text-4xl text-foreground mb-6 leading-[1.2]">
-            I photograph architecture, portraiture, street scenes and everyday moments.
-          </h2>
-          <div className="space-y-4">
-            <p className="font-body text-sm text-muted-foreground leading-[1.8]">
-              I am Tony Hardy. My work focuses on the built environment and the people moving through it, often in situations that are easily overlooked. I am interested in ordinary scenes, quiet details and the brief intersections between place, light and daily life.
+            <blockquote
+              className="text-foreground leading-[1.22] mb-10"
+              style={{
+                fontFamily: "'EB Garamond', serif",
+                fontStyle: "italic",
+                fontWeight: 400,
+                fontSize: "clamp(1.7rem, 3.5vw, 3rem)",
+              }}
+            >
+              "To record things as they are,
+              <br />
+              before they disappear or pass unnoticed."
+            </blockquote>
+
+            <p className="font-body text-sm text-muted-foreground leading-[1.85] max-w-md mb-10">
+              I am Tony Hardy. I photograph the built environment and the people moving through it —
+              ordinary scenes, quiet details, and the brief intersections between place, light, and daily life.
             </p>
-            <p className="font-body text-sm text-muted-foreground leading-[1.8]">
-              I work in both colour and black and white, choosing whichever best suits the subject. Sometimes that is the clarity and restraint of architectural form. Other times it is the immediacy of a street scene or a portrait caught without performance.
-            </p>
-            <p className="font-body text-sm text-muted-foreground leading-[1.8]">
-              The aim is simple. To record things as they are, before they disappear or pass unnoticed.
-            </p>
+
+            <Link
+              to="/about"
+              className="font-body text-[11px] tracking-[0.18em] uppercase text-muted-foreground pb-px border-b border-muted-foreground/25 hover:text-accent hover:border-accent transition-all duration-300"
+            >
+              More about Tony →
+            </Link>
           </div>
-        </div>
+        </RevealOnScroll>
       </div>
     </section>
   );

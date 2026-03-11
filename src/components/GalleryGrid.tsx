@@ -34,14 +34,12 @@ const Lightbox = ({ images, activeIndex, onClose, onPrev, onNext }: LightboxProp
   const total = images.length;
   const hasNav = total > 1;
 
-  // Lock body scroll
   useEffect(() => {
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => { document.body.style.overflow = prev; };
   }, []);
 
-  // Keyboard nav
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -78,7 +76,6 @@ const Lightbox = ({ images, activeIndex, onClose, onPrev, onNext }: LightboxProp
         </button>
       </div>
 
-      {/* Prev button */}
       {hasNav && (
         <button
           onClick={(e) => { e.stopPropagation(); onPrev(); }}
@@ -92,7 +89,7 @@ const Lightbox = ({ images, activeIndex, onClose, onPrev, onNext }: LightboxProp
         </button>
       )}
 
-      {/* Image + caption */}
+      {/* Image + italic Garamond caption */}
       <div
         className="flex flex-col items-center px-14 md:px-20"
         onClick={(e) => e.stopPropagation()}
@@ -102,17 +99,21 @@ const Lightbox = ({ images, activeIndex, onClose, onPrev, onNext }: LightboxProp
           src={image.src}
           alt={image.alt}
           className="block object-contain animate-in fade-in duration-300"
-          style={{ maxWidth: "88vw", maxHeight: "78vh" }}
+          style={{ maxWidth: "88vw", maxHeight: "82vh" }}
         />
         <p
-          className="font-display text-sm mt-5 tracking-wider"
-          style={{ color: "rgba(255,255,255,0.35)" }}
+          className="mt-5 tracking-wider"
+          style={{
+            fontFamily: "'EB Garamond', serif",
+            fontStyle: "italic",
+            fontSize: "0.9rem",
+            color: "rgba(255,255,255,0.32)",
+          }}
         >
           {image.title}
         </p>
       </div>
 
-      {/* Next button */}
       {hasNav && (
         <button
           onClick={(e) => { e.stopPropagation(); onNext(); }}
@@ -152,13 +153,17 @@ const GalleryGrid = ({ images }: GalleryGridProps) => {
     [images.length]
   );
 
-  // Editorial layout: for 3+ images, first cell spans 2 rows
   const hasFeature = images.length >= 3;
 
   return (
     <>
+      {/* Image count */}
+      <p className="font-body text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-6">
+        {images.length} {images.length === 1 ? "photograph" : "photographs"}
+      </p>
+
       <div
-        className={`grid gap-3 md:gap-4 ${
+        className={`grid gap-1 ${
           images.length <= 1 ? "grid-cols-1" : "grid-cols-1 md:grid-cols-2"
         }`}
       >
@@ -180,19 +185,19 @@ const GalleryGrid = ({ images }: GalleryGridProps) => {
                 isFeatured ? "aspect-[3/4] md:aspect-auto md:row-span-2" : "aspect-[4/3]"
               }`}
               style={{
-                opacity: dimmed ? 0.12 : 1,
-                transition: "opacity 0.5s ease",
+                opacity: dimmed ? 0.18 : 1,
+                transition: "opacity 0.55s ease",
               }}
             >
               <img
                 src={image.src}
                 alt={image.alt}
                 loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
               />
 
-              {/* Darkening overlay */}
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-500" />
+              {/* Subtle darkening overlay on hover */}
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
 
               {/* Title reveal */}
               <div className="absolute inset-x-0 bottom-0 px-5 py-4 translate-y-1 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-out">

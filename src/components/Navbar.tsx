@@ -1,8 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
-import ThemeToggle from "./ThemeToggle";
 
 const navItems = [
   { label: "Work", path: "/portfolio" },
+  { label: "About", path: "/about" },
   { label: "Contact", path: "/contact" },
 ];
 
@@ -21,7 +21,7 @@ const Navbar = () => {
             <li key={item.path}>
               <Link
                 to={item.path}
-                className={`font-body text-[11px] tracking-[0.15em] uppercase transition-opacity duration-300 ${
+                className={`font-body text-[11px] tracking-[0.15em] uppercase transition-all duration-300 ${
                   location.pathname === item.path || location.pathname.startsWith(item.path + "/")
                     ? "text-foreground opacity-100"
                     : "text-muted-foreground opacity-60 hover:opacity-100"
@@ -31,9 +31,6 @@ const Navbar = () => {
               </Link>
             </li>
           ))}
-          <li>
-            <ThemeToggle />
-          </li>
         </ul>
       </div>
     </nav>

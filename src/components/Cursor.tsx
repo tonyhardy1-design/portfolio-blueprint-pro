@@ -3,6 +3,9 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 
 type CursorVariant = "default" | "hover" | "zoom";
 
+// Accent colour token — terracotta, matches CSS var --accent: 28 45% 52%
+const ACCENT = "hsl(28, 45%, 52%)";
+
 const Cursor = () => {
   const rawX = useMotionValue(-100);
   const rawY = useMotionValue(-100);
@@ -13,7 +16,6 @@ const Cursor = () => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    // Don't render on touch-only devices
     if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
 
     const onMove = (e: MouseEvent) => {
@@ -46,7 +48,6 @@ const Cursor = () => {
     };
   }, [rawX, rawY, visible]);
 
-  // Don't mount on touch devices
   if (typeof window !== "undefined" && !window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
     return null;
   }
@@ -58,14 +59,14 @@ const Cursor = () => {
       aria-hidden="true"
     >
       <motion.div
-        className={`rounded-full ${
-          variant === "zoom"
-            ? "bg-transparent border border-foreground"
-            : "bg-foreground"
-        }`}
+        className="rounded-full"
+        style={{
+          backgroundColor: variant === "zoom" ? "transparent" : "hsl(0 0% 9%)",
+          border: variant === "zoom" ? `1px solid ${ACCENT}` : "none",
+        }}
         animate={{
-          width:  variant === "zoom" ? 38 : variant === "hover" ? 7 : 5,
-          height: variant === "zoom" ? 38 : variant === "hover" ? 7 : 5,
+          width:   variant === "zoom" ? 36 : variant === "hover" ? 7 : 5,
+          height:  variant === "zoom" ? 36 : variant === "hover" ? 7 : 5,
           opacity: visible ? 1 : 0,
         }}
         transition={{ type: "spring", stiffness: 380, damping: 22, mass: 0.4 }}

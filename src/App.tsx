@@ -1,4 +1,3 @@
-import { ThemeProvider } from "@/context/ThemeContext";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -11,12 +10,13 @@ import Portfolio from "./pages/Portfolio";
 import StreetPhotography from "./pages/StreetPhotography";
 import Architecture from "./pages/Architecture";
 import DailyPerspectives from "./pages/DailyPerspectives";
+import Hands from "./pages/Hands";
+import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-// Needs to be inside BrowserRouter to use useLocation
 const AnimatedRoutes = () => {
   const location = useLocation();
 
@@ -34,6 +34,8 @@ const AnimatedRoutes = () => {
           <Route path="/portfolio/street" element={<StreetPhotography />} />
           <Route path="/portfolio/architecture" element={<Architecture />} />
           <Route path="/portfolio/daily" element={<DailyPerspectives />} />
+          <Route path="/portfolio/hands" element={<Hands />} />
+          <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
@@ -43,18 +45,16 @@ const AnimatedRoutes = () => {
 };
 
 const App = () => (
-  <ThemeProvider>
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Cursor />
-          <AnimatedRoutes />
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
-  </ThemeProvider>
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <Cursor />
+        <AnimatedRoutes />
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryClientProvider>
 );
 
 export default App;
