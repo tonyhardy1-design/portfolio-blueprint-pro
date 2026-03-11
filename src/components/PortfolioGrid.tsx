@@ -5,7 +5,7 @@ import img1 from "@/assets/street/3-DSC02082.jpg";
 import img2 from "@/assets/architecture/11-DSC06524.jpg";
 import img3 from "@/assets/daily/7-DSCF8997.jpg";
 import img4 from "@/assets/street/4-DSC00283.jpg";
-import img5 from "@/assets/architecture/1-DSCF1193.jpg";
+import img5 from "@/assets/architecture/2-DSC02159.jpg";
 import img6 from "@/assets/daily/16-DSCF1567.jpg";
 
 const images = [
@@ -13,7 +13,7 @@ const images = [
   { src: img2, alt: "St Paul's Cathedral dome at golden hour" },
   { src: img3, alt: "An older man's hands clasped behind his back" },
   { src: img4, alt: "Man in yellow jacket, building reflected in a van window" },
-  { src: img5, alt: "Figure walking through a colonnaded arcade" },
+  { src: img5, alt: "Top of the London Eye rising into a clear sky" },
   { src: img6, alt: "Two people relaxing in deckchairs on Brighton Pier" },
 ];
 

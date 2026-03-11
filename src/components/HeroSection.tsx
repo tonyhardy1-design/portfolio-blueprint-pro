@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import heroImage from "@/assets/hero-bw.jpg";
-import archImg from "@/assets/architecture/1-DSCF1193.jpg";
+import archImg from "@/assets/architecture/2-DSC02159.jpg";
 import streetImg from "@/assets/street/3-DSC02082.jpg";
 import dailyImg from "@/assets/daily/7-DSCF8997.jpg";
 import stPaulsImg from "@/assets/architecture/11-DSC06524.jpg";
