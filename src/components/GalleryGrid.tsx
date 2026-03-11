@@ -177,7 +177,7 @@ const GalleryGrid = ({ images }: GalleryGridProps) => {
               onMouseEnter={() => setHoveredIdx(i)}
               onMouseLeave={() => setHoveredIdx(null)}
               className={`group relative overflow-hidden cursor-zoom-in ${
-                isFeatured ? "md:row-span-2" : "aspect-[4/3]"
+                isFeatured ? "aspect-[3/4] md:aspect-auto md:row-span-2" : "aspect-[4/3]"
               }`}
               style={{
                 opacity: dimmed ? 0.12 : 1,

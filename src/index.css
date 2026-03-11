@@ -138,8 +138,8 @@
 }
 
 /* ── Film grain overlay ───────────────────────────────────────────────── */
-body {
-  cursor: none;
+@media (hover: hover) and (pointer: fine) {
+  body { cursor: none; }
 }
 
 body::after {
