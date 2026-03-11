@@ -1,18 +1,10 @@
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import heroImage from "@/assets/hero-bw.jpg";
-import archImg from "@/assets/architecture/2-DSC02159.jpg";
-import streetImg from "@/assets/street/3-DSC02082.jpg";
-import dailyImg from "@/assets/daily/7-DSCF8997.jpg";
-import stPaulsImg from "@/assets/architecture/11-DSC06524.jpg";
 
-const slides = [
-  { src: heroImage,   position: "object-bottom" },
-  { src: archImg,     position: "object-center" },
-  { src: streetImg,   position: "object-center" },
-  { src: dailyImg,    position: "object-center" },
-  { src: stPaulsImg,  position: "object-bottom" },
-];
+const heroModules = import.meta.glob('../assets/hero/*.{jpg,jpeg,png,webp}', { eager: true });
+const heroSrcs: string[] = Object.values(heroModules).map(
+  (mod) => (mod as { default: string }).default
+);
 
 const HOLD_MS = 7000;
 const FADE_MS = 2000;
@@ -21,11 +13,14 @@ const HeroSection = () => {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
+    if (heroSrcs.length === 0) return;
     const timer = setInterval(() => {
-      setCurrent((i) => (i + 1) % slides.length);
+      setCurrent((i) => (i + 1) % heroSrcs.length);
     }, HOLD_MS);
     return () => clearInterval(timer);
   }, []);
+
+  if (heroSrcs.length === 0) return null;
 
   return (
     <section className="pt-24">
@@ -43,13 +38,13 @@ const HeroSection = () => {
         <AnimatePresence>
           <motion.img
             key={current}
-            src={slides[current].src}
+            src={heroSrcs[current]}
             alt="Portfolio photograph"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: FADE_MS / 1000, ease: "easeInOut" }}
-            className={`absolute inset-0 w-full h-full object-cover ${slides[current].position}`}
+            className="absolute inset-0 w-full h-full object-cover object-center"
           />
         </AnimatePresence>
       </div>
