@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import RevealOnScroll from "@/components/RevealOnScroll";
 import img1 from "@/assets/street/3-DSC02082.jpg";
 import img2 from "@/assets/architecture/11-DSC06524.jpg";
 import img3 from "@/assets/daily/7-DSCF8997.jpg";
@@ -16,6 +18,8 @@ const images = [
 ];
 
 const PortfolioGrid = () => {
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
+
   return (
     <section className="py-20 md:py-32 px-6">
       <div className="container mx-auto">
@@ -26,14 +30,24 @@ const PortfolioGrid = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {images.map((item, i) => (
-            <div key={i} className="group">
-              <img
-                src={item.src}
-                alt={item.alt}
-                className="w-full object-cover transition-opacity duration-500 group-hover:opacity-90"
-                loading="lazy"
-              />
-            </div>
+            <RevealOnScroll key={i} delay={i * 90}>
+              <div
+                className="group"
+                onMouseEnter={() => setHoveredIdx(i)}
+                onMouseLeave={() => setHoveredIdx(null)}
+                style={{
+                  opacity: hoveredIdx !== null && hoveredIdx !== i ? 0.12 : 1,
+                  transition: "opacity 0.5s ease",
+                }}
+              >
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  className="w-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </RevealOnScroll>
           ))}
         </div>
 

@@ -1,6 +1,32 @@
+import { useState, useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import heroImage from "@/assets/hero-bw.jpg";
+import archImg from "@/assets/architecture/1-DSCF1193.jpg";
+import streetImg from "@/assets/street/3-DSC02082.jpg";
+import dailyImg from "@/assets/daily/7-DSCF8997.jpg";
+import stPaulsImg from "@/assets/architecture/11-DSC06524.jpg";
+
+const slides = [
+  { src: heroImage,   position: "object-bottom" },
+  { src: archImg,     position: "object-center" },
+  { src: streetImg,   position: "object-center" },
+  { src: dailyImg,    position: "object-center" },
+  { src: stPaulsImg,  position: "object-bottom" },
+];
+
+const HOLD_MS = 7000;
+const FADE_MS = 2000;
 
 const HeroSection = () => {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((i) => (i + 1) % slides.length);
+    }, HOLD_MS);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="pt-24">
       <div className="container mx-auto px-6 py-16 md:py-24">
@@ -13,12 +39,19 @@ const HeroSection = () => {
         </p>
       </div>
 
-      <div className="w-full">
-        <img
-          src={heroImage}
-          alt="Street scene in black and white"
-          className="w-full h-[60vh] md:h-[75vh] object-cover object-bottom"
-        />
+      <div className="w-full relative h-[60vh] md:h-[75vh] overflow-hidden">
+        <AnimatePresence>
+          <motion.img
+            key={current}
+            src={slides[current].src}
+            alt="Portfolio photograph"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: FADE_MS / 1000, ease: "easeInOut" }}
+            className={`absolute inset-0 w-full h-full object-cover ${slides[current].position}`}
+          />
+        </AnimatePresence>
       </div>
     </section>
   );

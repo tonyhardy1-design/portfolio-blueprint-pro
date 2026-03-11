@@ -92,7 +92,7 @@ const Lightbox = ({ images, activeIndex, onClose, onPrev, onNext }: LightboxProp
         </button>
       )}
 
-      {/* Image + caption — stopPropagation so clicking image doesn't close */}
+      {/* Image + caption */}
       <div
         className="flex flex-col items-center px-14 md:px-20"
         onClick={(e) => e.stopPropagation()}
@@ -138,6 +138,7 @@ interface GalleryGridProps {
 
 const GalleryGrid = ({ images }: GalleryGridProps) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
   const open = (i: number) => setActiveIndex(i);
   const close = () => setActiveIndex(null);
@@ -163,6 +164,7 @@ const GalleryGrid = ({ images }: GalleryGridProps) => {
       >
         {images.map((image, i) => {
           const isFeatured = hasFeature && i === 0;
+          const dimmed = hoveredIdx !== null && hoveredIdx !== i;
 
           return (
             <div
@@ -172,9 +174,15 @@ const GalleryGrid = ({ images }: GalleryGridProps) => {
               aria-label={`Open ${image.title} in lightbox`}
               onClick={() => open(i)}
               onKeyDown={(e) => e.key === "Enter" && open(i)}
+              onMouseEnter={() => setHoveredIdx(i)}
+              onMouseLeave={() => setHoveredIdx(null)}
               className={`group relative overflow-hidden cursor-zoom-in ${
                 isFeatured ? "md:row-span-2" : "aspect-[4/3]"
               }`}
+              style={{
+                opacity: dimmed ? 0.12 : 1,
+                transition: "opacity 0.5s ease",
+              }}
             >
               <img
                 src={image.src}
@@ -184,7 +192,7 @@ const GalleryGrid = ({ images }: GalleryGridProps) => {
               />
 
               {/* Darkening overlay */}
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-colors duration-500" />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-500" />
 
               {/* Title reveal */}
               <div className="absolute inset-x-0 bottom-0 px-5 py-4 translate-y-1 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-out">

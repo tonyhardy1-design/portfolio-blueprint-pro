@@ -1,3 +1,4 @@
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -29,6 +30,45 @@ const categories = [
   },
 ];
 
+interface TiltCardProps {
+  children: React.ReactNode;
+}
+
+const TiltCard = ({ children }: TiltCardProps) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [transform, setTransform] = useState(
+    "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)"
+  );
+  const [easing, setEasing] = useState("transform 0.65s cubic-bezier(0.25, 1, 0.5, 1)");
+
+  const onMove = (e: React.MouseEvent) => {
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    setEasing("transform 0.08s linear");
+    setTransform(
+      `perspective(1000px) rotateX(${y * -9}deg) rotateY(${x * 9}deg) scale3d(1.02,1.02,1.02)`
+    );
+  };
+
+  const onLeave = () => {
+    setEasing("transform 0.65s cubic-bezier(0.25, 1, 0.5, 1)");
+    setTransform("perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)");
+  };
+
+  return (
+    <div
+      ref={ref}
+      onMouseMove={onMove}
+      onMouseLeave={onLeave}
+      style={{ transform, transition: easing, transformStyle: "preserve-3d" }}
+    >
+      {children}
+    </div>
+  );
+};
+
 const Portfolio = () => {
   return (
     <main>
@@ -44,24 +84,26 @@ const Portfolio = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
             {categories.map((cat) => (
-              <Link key={cat.path} to={cat.path} className="group cursor-pointer">
-                <div className="overflow-hidden">
-                  <img
-                    src={cat.image}
-                    alt={cat.alt}
-                    className="w-full h-72 object-cover transition-all duration-500 group-hover:scale-105 group-hover:shadow-lg group-hover:-translate-y-2"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="mt-4">
-                  <p className="font-body text-[11px] tracking-[0.15em] uppercase text-foreground mb-1">
-                    {cat.label}
-                  </p>
-                  <p className="font-body text-xs text-muted-foreground leading-relaxed">
-                    {cat.description}
-                  </p>
-                </div>
-              </Link>
+              <TiltCard key={cat.path}>
+                <Link to={cat.path} className="group cursor-pointer block">
+                  <div className="overflow-hidden">
+                    <img
+                      src={cat.image}
+                      alt={cat.alt}
+                      className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="mt-4">
+                    <p className="font-body text-[11px] tracking-[0.15em] uppercase text-foreground mb-1">
+                      {cat.label}
+                    </p>
+                    <p className="font-body text-xs text-muted-foreground leading-relaxed">
+                      {cat.description}
+                    </p>
+                  </div>
+                </Link>
+              </TiltCard>
             ))}
           </div>
         </div>
