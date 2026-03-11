@@ -7,14 +7,28 @@ import PortfolioGrid from "@/components/PortfolioGrid";
 import AboutTeaser from "@/components/AboutTeaser";
 import Footer from "@/components/Footer";
 
+function getSplashShown(): boolean {
+  try {
+    return !!sessionStorage.getItem("splashShown");
+  } catch {
+    return true; // skip splash if sessionStorage unavailable
+  }
+}
+
+function setSplashShown(): void {
+  try {
+    sessionStorage.setItem("splashShown", "true");
+  } catch {
+    // sessionStorage unavailable
+  }
+}
+
 const Index = () => {
-  const [showSplash, setShowSplash] = useState(() => {
-    return !sessionStorage.getItem("splashShown");
-  });
+  const [showSplash, setShowSplash] = useState(() => !getSplashShown());
 
   useEffect(() => {
     if (!showSplash) {
-      sessionStorage.setItem("splashShown", "true");
+      setSplashShown();
     }
   }, [showSplash]);
 
@@ -33,17 +47,13 @@ const Index = () => {
       </AnimatePresence>
 
       {!showSplash && (
-        <motion.main
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.4, ease: "easeOut" }}
-        >
+        <main>
           <Navbar />
           <HeroSection />
           <PortfolioGrid />
           <AboutTeaser />
           <Footer />
-        </motion.main>
+        </main>
       )}
     </>
   );

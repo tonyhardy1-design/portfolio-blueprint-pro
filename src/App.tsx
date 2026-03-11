@@ -1,3 +1,4 @@
+import { Component, ReactNode } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Cursor from "@/components/Cursor";
@@ -10,6 +11,33 @@ import Hands from "./pages/Hands";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+
+class ErrorBoundary extends Component<
+  { children: ReactNode },
+  { error: Error | null }
+> {
+  state = { error: null };
+
+  static getDerivedStateFromError(error: Error) {
+    return { error };
+  }
+
+  render() {
+    if (this.state.error) {
+      return (
+        <div style={{ padding: "2rem", fontFamily: "monospace", fontSize: "0.875rem" }}>
+          <strong>Something went wrong:</strong>
+          <pre style={{ marginTop: "1rem", whiteSpace: "pre-wrap", wordBreak: "break-word" }}>
+            {(this.state.error as Error).message}
+            {"\n\n"}
+            {(this.state.error as Error).stack}
+          </pre>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -40,10 +68,12 @@ const AnimatedRoutes = () => {
 };
 
 const App = () => (
-  <BrowserRouter>
-    <Cursor />
-    <AnimatedRoutes />
-  </BrowserRouter>
+  <ErrorBoundary>
+    <BrowserRouter>
+      <Cursor />
+      <AnimatedRoutes />
+    </BrowserRouter>
+  </ErrorBoundary>
 );
 
 export default App;
