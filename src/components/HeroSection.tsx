@@ -85,7 +85,7 @@ const HeroSection = () => {
       </div>
 
       {/* Slide counter — top right, below nav */}
-      <div className="absolute top-0 right-0 pt-7 pr-8">
+      <div className="absolute top-0 right-0 pt-20 pr-8">
         <motion.span
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

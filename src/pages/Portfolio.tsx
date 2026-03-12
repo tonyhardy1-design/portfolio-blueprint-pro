@@ -87,11 +87,7 @@ const Portfolio = () => {
                 </div>
 
                 {/* Text — 40% */}
-                <div
-                  className={`w-full md:w-2/5 flex flex-col justify-center px-8 py-10 md:px-14 md:py-16 ${
-                    i % 2 === 0 ? "" : ""
-                  }`}
-                >
+                <div className="w-full md:w-2/5 flex flex-col justify-center px-8 py-10 md:px-14 md:py-16">
                   <p className="font-body text-[10px] tracking-[0.22em] uppercase text-muted-foreground mb-4">
                     {String(i + 1).padStart(2, "0")}
                   </p>
