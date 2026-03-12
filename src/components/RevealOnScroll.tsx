@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useRef, useState, ReactNode } from "react";
+import { forwardRef, useCallback, useEffect, useRef, useState, ReactNode } from "react";
 
 interface RevealOnScrollProps {
   children: ReactNode;
@@ -13,11 +13,16 @@ const RevealOnScroll = forwardRef<HTMLDivElement, RevealOnScrollProps>(
 
     useEffect(() => {
       const el = localRef.current;
-      if (!el) return;
+      if (!el || typeof IntersectionObserver === "undefined") {
+        setVisible(true);
+        return;
+      }
 
+      let revealed = false;
       const observer = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
+            revealed = true;
             setVisible(true);
             observer.disconnect();
           }
@@ -26,17 +31,31 @@ const RevealOnScroll = forwardRef<HTMLDivElement, RevealOnScrollProps>(
       );
 
       observer.observe(el);
-      return () => observer.disconnect();
+
+      const failSafeTimer = window.setTimeout(() => {
+        if (!revealed) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      }, 1200);
+
+      return () => {
+        window.clearTimeout(failSafeTimer);
+        observer.disconnect();
+      };
     }, []);
 
-    const setRefs = (node: HTMLDivElement | null) => {
-      localRef.current = node;
-      if (typeof forwardedRef === "function") {
-        forwardedRef(node);
-      } else if (forwardedRef) {
-        forwardedRef.current = node;
-      }
-    };
+    const setRefs = useCallback(
+      (node: HTMLDivElement | null) => {
+        localRef.current = node;
+        if (typeof forwardedRef === "function") {
+          forwardedRef(node);
+        } else if (forwardedRef) {
+          forwardedRef.current = node;
+        }
+      },
+      [forwardedRef]
+    );
 
     return (
       <div
