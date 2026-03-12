@@ -1,4 +1,4 @@
-import { Component, ReactNode, useEffect } from "react";
+import { Component, ReactNode } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Cursor from "@/components/Cursor";
@@ -39,21 +39,11 @@ class ErrorBoundary extends Component<
   }
 }
 
-const ScrollToTop = () => {
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-  return null;
-};
-
 const AnimatedRoutes = () => {
   const location = useLocation();
 
   return (
-    <>
-      <ScrollToTop />
-      <AnimatePresence mode="wait" initial={false}>
+    <AnimatePresence mode="wait" initial={false}>
         <motion.div
           key={location.pathname}
           initial={{ opacity: 0 }}
@@ -74,7 +64,6 @@ const AnimatedRoutes = () => {
           </Routes>
         </motion.div>
       </AnimatePresence>
-    </>
   );
 };
 
