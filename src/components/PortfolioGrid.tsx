@@ -57,7 +57,7 @@ const images = [
     alt: "Top of the London Eye rising into a clear sky",
     // Row 4: right, wider — mirrors row 2 in reverse
     grid: "col-span-12 md:col-span-7",
-    aspect: "aspect-[3/2]",
+    aspect: "",
   },
 ];
 
