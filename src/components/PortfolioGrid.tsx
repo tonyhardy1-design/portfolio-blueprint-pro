@@ -79,7 +79,7 @@ const PortfolioGrid = () => {
           {images.map((item, i) => (
             <RevealOnScroll key={i} delay={i * 60} className={item.grid}>
               <div
-                className={`overflow-hidden ${item.aspect}`}
+                className="overflow-hidden"
                 onMouseEnter={() => setHoveredIdx(i)}
                 onMouseLeave={() => setHoveredIdx(null)}
                 style={{
@@ -90,7 +90,7 @@ const PortfolioGrid = () => {
                 <img
                   src={item.src}
                   alt={item.alt}
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-[1.025]"
+                  className="w-full h-auto block transition-transform duration-700 ease-out hover:scale-[1.025]"
                   loading="lazy"
                 />
               </div>
