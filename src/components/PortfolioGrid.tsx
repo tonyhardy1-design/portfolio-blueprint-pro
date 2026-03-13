@@ -43,7 +43,7 @@ const images = [
     alt: "Figures seen through a passing train window",
     // Row 3: centred plate
     grid: "col-span-12 md:col-span-6 md:col-start-4",
-    aspect: "aspect-square",
+    aspect: "",
   },
   {
     src: imgDaily1,
