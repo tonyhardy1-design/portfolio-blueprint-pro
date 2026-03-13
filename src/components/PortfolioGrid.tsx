@@ -36,7 +36,7 @@ const images = [
     alt: "An older man's hands clasped behind his back",
     // Row 2: right column, narrower — portrait aspect creates contrast
     grid: "col-span-12 md:col-span-5",
-    aspect: "aspect-[3/4]",
+    aspect: "",
   },
   {
     src: imgStreet2,
