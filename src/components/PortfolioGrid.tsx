@@ -22,7 +22,7 @@ const images = [
     alt: "Skateboarder at the Southbank undercroft",
     // Row 1: full width
     grid: "col-span-12",
-    aspect: "aspect-[21/9]",
+    aspect: "",
   },
   {
     src: imgArch1,
