@@ -22,42 +22,42 @@ const images = [
     alt: "Skateboarder at the Southbank undercroft",
     // Row 1: full width
     grid: "col-span-12",
-    aspect: "aspect-[21/9]",
+    aspect: "",
   },
   {
     src: imgArch1,
     alt: "St Paul's Cathedral dome at golden hour",
     // Row 2: left column, wider
     grid: "col-span-12 md:col-span-7",
-    aspect: "aspect-[3/2]",
+    aspect: "",
   },
   {
     src: imgHands1,
     alt: "An older man's hands clasped behind his back",
     // Row 2: right column, narrower — portrait aspect creates contrast
     grid: "col-span-12 md:col-span-5",
-    aspect: "aspect-[3/4]",
+    aspect: "",
   },
   {
     src: imgStreet2,
     alt: "Figures seen through a passing train window",
     // Row 3: centred plate
     grid: "col-span-12 md:col-span-6 md:col-start-4",
-    aspect: "aspect-square",
+    aspect: "",
   },
   {
     src: imgDaily1,
     alt: "Newborn baby sleeping with a small bow",
     // Row 4: left, narrower
     grid: "col-span-12 md:col-span-5",
-    aspect: "aspect-[3/4]",
+    aspect: "",
   },
   {
     src: imgArch2,
     alt: "Top of the London Eye rising into a clear sky",
     // Row 4: right, wider — mirrors row 2 in reverse
     grid: "col-span-12 md:col-span-7",
-    aspect: "aspect-[3/2]",
+    aspect: "",
   },
 ];
 
@@ -79,7 +79,7 @@ const PortfolioGrid = () => {
           {images.map((item, i) => (
             <RevealOnScroll key={i} delay={i * 60} className={item.grid}>
               <div
-                className={`overflow-hidden ${item.aspect}`}
+                className="overflow-hidden"
                 onMouseEnter={() => setHoveredIdx(i)}
                 onMouseLeave={() => setHoveredIdx(null)}
                 style={{
@@ -90,7 +90,7 @@ const PortfolioGrid = () => {
                 <img
                   src={item.src}
                   alt={item.alt}
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-[1.025]"
+                  className="w-full h-auto block transition-transform duration-700 ease-out hover:scale-[1.025]"
                   loading="lazy"
                 />
               </div>
