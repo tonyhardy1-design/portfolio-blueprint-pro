@@ -5,10 +5,10 @@ import RevealOnScroll from "@/components/RevealOnScroll";
 import aboutPhoto from "@/assets/about-tony.jpg";
 
 const disciplines = [
-  { title: "Street",       subtitle: "Documentary"  },
-  { title: "Architecture", subtitle: "Built Form"   },
-  { title: "Hands",        subtitle: "Studies"      },
-  { title: "Daily",        subtitle: "Observational"},
+  { title: "Street",       subtitle: "Documentary",   path: "/portfolio/street" },
+  { title: "Architecture", subtitle: "Built Form",    path: "/portfolio/architecture" },
+  { title: "Hands",        subtitle: "Studies",       path: "/portfolio/hands" },
+  { title: "Daily",        subtitle: "Observational", path: "/portfolio/daily" },
 ];
 
 const About = () => {
@@ -73,8 +73,9 @@ const About = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-10 border-t border-border mb-20 md:mb-28">
               {disciplines.map((d) => (
                 <div key={d.title}>
-                  <p
-                    className="text-foreground mb-2"
+                  <Link
+                    to={d.path}
+                    className="text-foreground hover:text-accent transition-colors duration-300 mb-2 block"
                     style={{
                       fontFamily: "'EB Garamond', serif",
                       fontWeight: 400,
@@ -82,7 +83,7 @@ const About = () => {
                     }}
                   >
                     {d.title}
-                  </p>
+                  </Link>
                   <p className="font-body text-[11px] tracking-[0.15em] uppercase text-muted-foreground">
                     {d.subtitle}
                   </p>
