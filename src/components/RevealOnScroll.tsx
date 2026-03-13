@@ -61,10 +61,14 @@ const RevealOnScroll = forwardRef<HTMLDivElement, RevealOnScrollProps>(
       <div
         ref={setRefs}
         className={className}
-        style={{
-          clipPath: visible ? "inset(0% 0 0% 0)" : "inset(100% 0 0% 0)",
-          transition: `clip-path 0.9s cubic-bezier(0.25, 1, 0.5, 1) ${delay}ms`,
-        }}
+        style={
+          visible
+            ? { clipPath: "none" }
+            : {
+                clipPath: "inset(100% 0 0% 0)",
+                transition: `clip-path 0.9s cubic-bezier(0.25, 1, 0.5, 1) ${delay}ms`,
+              }
+        }
       >
         {children}
       </div>
