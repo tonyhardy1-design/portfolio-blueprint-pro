@@ -21,7 +21,7 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
       transition={{ duration: 2.5, times: [0, 0.72, 1], ease: "easeInOut" }}
     >
       {words.map((word, i) => (
-        <div key={word} className="overflow-hidden leading-[0.88]">
+        <div key={word} className="overflow-hidden leading-[1.1] pb-1">
           <motion.span
             className="block font-display italic select-none text-foreground text-5xl md:text-7xl lg:text-8xl"
             initial={{ y: "108%" }}
