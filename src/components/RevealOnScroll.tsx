@@ -10,11 +10,13 @@ const RevealOnScroll = forwardRef<HTMLDivElement, RevealOnScrollProps>(
   ({ children, delay = 0, className = "" }, forwardedRef) => {
     const localRef = useRef<HTMLDivElement | null>(null);
     const [visible, setVisible] = useState(false);
+    const [animationDone, setAnimationDone] = useState(false);
 
     useEffect(() => {
       const el = localRef.current;
       if (!el || typeof IntersectionObserver === "undefined") {
         setVisible(true);
+        setAnimationDone(true);
         return;
       }
 
@@ -45,6 +47,14 @@ const RevealOnScroll = forwardRef<HTMLDivElement, RevealOnScrollProps>(
       };
     }, []);
 
+    // After the reveal animation completes, remove clip-path entirely
+    // so lightbox open/close doesn't cause elements to disappear
+    useEffect(() => {
+      if (!visible) return;
+      const t = window.setTimeout(() => setAnimationDone(true), 900 + delay + 50);
+      return () => window.clearTimeout(t);
+    }, [visible, delay]);
+
     const setRefs = useCallback(
       (node: HTMLDivElement | null) => {
         localRef.current = node;
@@ -62,10 +72,10 @@ const RevealOnScroll = forwardRef<HTMLDivElement, RevealOnScrollProps>(
         ref={setRefs}
         className={className}
         style={
-          visible
-            ? { clipPath: "none" }
+          animationDone
+            ? undefined
             : {
-                clipPath: "inset(100% 0 0% 0)",
+                clipPath: visible ? "inset(0% 0 0% 0)" : "inset(100% 0 0% 0)",
                 transition: `clip-path 0.9s cubic-bezier(0.25, 1, 0.5, 1) ${delay}ms`,
               }
         }
