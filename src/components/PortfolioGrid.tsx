@@ -50,7 +50,7 @@ const images = [
     alt: "Newborn baby sleeping with a small bow",
     // Row 4: left, narrower
     grid: "col-span-12 md:col-span-5",
-    aspect: "aspect-[3/4]",
+    aspect: "",
   },
   {
     src: imgArch2,
