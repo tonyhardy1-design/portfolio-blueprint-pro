@@ -5,10 +5,10 @@ import RevealOnScroll from "@/components/RevealOnScroll";
 import aboutPhoto from "@/assets/about-tony.jpg";
 
 const disciplines = [
-  { title: "Street",       subtitle: "Documentary"  },
-  { title: "Architecture", subtitle: "Built Form"   },
-  { title: "Hands",        subtitle: "Studies"      },
-  { title: "Daily",        subtitle: "Observational"},
+  { title: "Street",       subtitle: "Documentary",   path: "/portfolio/street" },
+  { title: "Architecture", subtitle: "Built Form",    path: "/portfolio/architecture" },
+  { title: "Hands",        subtitle: "Studies",       path: "/portfolio/hands" },
+  { title: "Daily",        subtitle: "Observational", path: "/portfolio/daily" },
 ];
 
 const About = () => {
