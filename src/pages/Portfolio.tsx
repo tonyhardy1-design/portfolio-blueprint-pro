@@ -105,7 +105,7 @@ const Portfolio = () => {
                     {cat.description}
                   </p>
                   <span className="font-body text-[11px] tracking-[0.15em] uppercase text-muted-foreground group-hover:text-accent transition-colors duration-300">
-                    View series →
+                    View collection →
                   </span>
                 </div>
               </div>
