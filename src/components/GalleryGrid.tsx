@@ -191,7 +191,7 @@ const GalleryGrid = ({ images }: GalleryGridProps) => {
                 src={image.src}
                 alt={image.alt}
                 loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                className="w-full h-auto block transition-transform duration-700 ease-out group-hover:scale-[1.03]"
               />
 
               {/* Subtle darkening overlay on hover */}
