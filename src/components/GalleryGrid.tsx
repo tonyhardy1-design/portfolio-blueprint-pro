@@ -181,9 +181,7 @@ const GalleryGrid = ({ images }: GalleryGridProps) => {
               onKeyDown={(e) => e.key === "Enter" && open(i)}
               onMouseEnter={() => setHoveredIdx(i)}
               onMouseLeave={() => setHoveredIdx(null)}
-              className={`group relative overflow-hidden cursor-zoom-in ${
-                isFeatured ? "aspect-[3/4] md:aspect-auto md:row-span-2" : "aspect-[4/3]"
-              }`}
+              className="group relative overflow-hidden cursor-zoom-in"
               style={{
                 opacity: dimmed ? 0.18 : 1,
                 transition: "opacity 0.55s ease",
@@ -193,7 +191,7 @@ const GalleryGrid = ({ images }: GalleryGridProps) => {
                 src={image.src}
                 alt={image.alt}
                 loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                className="w-full h-auto block transition-transform duration-700 ease-out group-hover:scale-[1.03]"
               />
 
               {/* Subtle darkening overlay on hover */}
