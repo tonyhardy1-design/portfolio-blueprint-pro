@@ -91,6 +91,12 @@
   .font-body {
     font-family: 'Inter', sans-serif;
   }
+
+  /* Hero height — 100vh fallback for browsers without svh support */
+  .hero-height {
+    height: 100vh;
+    height: 100svh;
+  }
 }
 
 /* ── Film grain overlay ───────────────────────────────────────────────── */

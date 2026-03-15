@@ -39,7 +39,7 @@ const HeroSection = () => {
   if (heroSrcs.length === 0) return null;
 
   return (
-    <section className="relative w-full overflow-hidden" style={{ height: "100svh" }}>
+    <section className="hero-height relative w-full overflow-hidden">
       {/* Crossfading images */}
       <AnimatePresence>
         <motion.img
@@ -50,7 +50,7 @@ const HeroSection = () => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: FADE_MS / 1000, ease: "easeInOut" }}
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="absolute inset-0 w-full h-full object-cover object-top md:object-center"
         />
       </AnimatePresence>
 
@@ -64,7 +64,7 @@ const HeroSection = () => {
       />
 
       {/* Text — bottom left, editorial weight */}
-      <div className="absolute bottom-0 left-0 right-0 pb-14 md:pb-20">
+      <div className="absolute bottom-0 left-0 right-0 pb-10 sm:pb-14 md:pb-20">
         <div className="container mx-auto px-6">
           <motion.h1
             initial={{ opacity: 0, y: 22 }}
@@ -74,7 +74,7 @@ const HeroSection = () => {
             style={{
               fontFamily: "'EB Garamond', serif",
               fontWeight: 400,
-              fontSize: "clamp(2.8rem, 7.5vw, 7.5rem)",
+              fontSize: "clamp(2.2rem, 7.5vw, 7.5rem)",
             }}
           >
             Quiet observations
