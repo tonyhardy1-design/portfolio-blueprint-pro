@@ -47,14 +47,24 @@ const Contact = () => {
                 <p className="font-body text-[11px] tracking-[0.15em] uppercase text-muted-foreground mb-4">
                   Instagram
                 </p>
-                <a
-                  href="https://www.instagram.com/t.r.h.85/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-display text-2xl md:text-3xl text-foreground transition-colors duration-300 hover:text-accent"
-                >
-                  @t.r.h.85
-                </a>
+                <div className="flex flex-col gap-3">
+                  <a
+                    href="https://www.instagram.com/t.r.h.85/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-display text-2xl md:text-3xl text-foreground transition-colors duration-300 hover:text-accent"
+                  >
+                    @t.r.h.85
+                  </a>
+                  <a
+                    href="https://www.instagram.com/tonyrh85/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-display text-2xl md:text-3xl text-foreground transition-colors duration-300 hover:text-accent"
+                  >
+                    @tonyrh85
+                  </a>
+                </div>
               </div>
 
               <div className="pt-4 border-t border-border">
