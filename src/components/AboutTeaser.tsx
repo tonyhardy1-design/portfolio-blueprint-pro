@@ -20,13 +20,12 @@ const AboutTeaser = () => {
                 fontSize: "clamp(1.7rem, 3.5vw, 3rem)",
               }}
             >
-              "To record things as they are,{" "}
-              <br />{"before they disappear or pass unnoticed."}
+              "To record things as they are, before they disappear or pass unnoticed."
             </blockquote>
 
             <p className="font-body text-sm text-muted-foreground leading-[1.85] max-w-md mb-10">
-              I am Tony Hardy. I photograph the built environment and the people moving through it —
-              ordinary scenes, quiet details, and the brief intersections between place, light, and daily life.
+              I am Tony Hardy. I photograph the built environment and the people moving through it.
+              Ordinary scenes, quiet details, and the brief intersections between place, light, and daily life.
             </p>
 
             <Link
