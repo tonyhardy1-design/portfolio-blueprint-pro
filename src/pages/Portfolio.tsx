@@ -57,7 +57,7 @@ const Portfolio = () => {
               fontSize: "clamp(2.5rem, 5.5vw, 5rem)",
             }}
           >
-            The work
+            The Work
           </h1>
         </div>
       </section>
@@ -77,11 +77,11 @@ const Portfolio = () => {
                 }`}
               >
                 {/* Image — 60% */}
-                <div className="w-full md:w-3/5 overflow-hidden">
+                <div className="w-full md:w-3/5 overflow-hidden" style={{ maxHeight: "70vh" }}>
                   <img
                     src={cat.image}
                     alt={cat.alt}
-                    className="w-full h-auto block transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+                    className="w-full h-full object-cover block transition-transform duration-700 ease-out group-hover:scale-[1.025]"
                     loading="lazy"
                   />
                 </div>

@@ -135,9 +135,10 @@ const Lightbox = ({ images, activeIndex, onClose, onPrev, onNext }: LightboxProp
 
 interface GalleryGridProps {
   images: GalleryImage[];
+  columns?: 1 | 2;
 }
 
-const GalleryGrid = ({ images }: GalleryGridProps) => {
+const GalleryGrid = ({ images, columns }: GalleryGridProps) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
@@ -164,7 +165,7 @@ const GalleryGrid = ({ images }: GalleryGridProps) => {
 
       <div
         className={`grid gap-1 ${
-          images.length <= 1 ? "grid-cols-1" : "grid-cols-1 md:grid-cols-2"
+          (columns === 1 || images.length <= 1) ? "grid-cols-1" : "grid-cols-1 md:grid-cols-2"
         }`}
       >
         {images.map((image, i) => {
