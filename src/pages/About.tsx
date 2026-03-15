@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import RevealOnScroll from "@/components/RevealOnScroll";
-import aboutPhoto from "@/assets/daily/DSC01286.JPG";
+import aboutPhoto from "@/assets/about-tony.jpg";
 
 const disciplines = [
   { title: "Street",       subtitle: "Documentary",   path: "/portfolio/street" },
@@ -22,7 +22,7 @@ const About = () => {
         <div className="w-full overflow-hidden" style={{ aspectRatio: "16/9" }}>
           <img
             src={aboutPhoto}
-            alt="Still — a quiet moment from daily life"
+            alt="Tony Hardy"
             className="w-full h-full object-cover object-center"
           />
         </div>

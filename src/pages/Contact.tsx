@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import RevealOnScroll from "@/components/RevealOnScroll";
-import closingImg from "@/assets/street/bw-portrait-1.jpg";
+import closingImg from "@/assets/daily/DSC01286.JPG";
 
 const Contact = () => {
   return (
@@ -68,11 +68,11 @@ const Contact = () => {
       </section>
 
       {/* Closing image — atmospheric sign-off */}
-      <div className="w-full overflow-hidden" style={{ height: "55vh" }}>
+      <div className="w-full overflow-hidden" style={{ height: "50vh" }}>
         <img
           src={closingImg}
-          alt="Tony Hardy photography"
-          className="w-full h-full object-cover object-center"
+          alt="Still — a quiet moment from daily life"
+          className="w-full h-full object-cover object-top"
           loading="lazy"
         />
       </div>
