@@ -81,7 +81,7 @@ const Portfolio = () => {
                   <img
                     src={cat.image}
                     alt={cat.alt}
-                    className="w-full h-auto block transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+                    className="w-full h-full object-cover block transition-transform duration-700 ease-out group-hover:scale-[1.025]"
                     loading="lazy"
                   />
                 </div>
