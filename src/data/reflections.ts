@@ -1,5 +1,5 @@
-import reflection from "@/assets/street/4-DSC00283.jpg";
-import theCity    from "@/assets/street/14-DSC00891.jpg";
+import reflection from "@/assets/reflections/4-DSC00283.jpg";
+import theCity    from "@/assets/reflections/14-DSC00891.jpg";
 
 export const reflectionsImages = [
   { src: reflection, alt: "Man in yellow jacket, building reflected in a van",                 title: "Reflection" },
