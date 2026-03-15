@@ -174,12 +174,12 @@ const GalleryGrid = ({ images, columns }: GalleryGridProps) => {
 
           return (
             <div
-              key={i}
+              key={image.src}
               role="button"
               tabIndex={0}
               aria-label={`Open ${image.title} in lightbox`}
               onClick={() => open(i)}
-              onKeyDown={(e) => e.key === "Enter" && open(i)}
+              onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && open(i)}
               onMouseEnter={() => setHoveredIdx(i)}
               onMouseLeave={() => setHoveredIdx(null)}
               className="group relative overflow-hidden cursor-zoom-in"

@@ -6,6 +6,8 @@ interface RevealOnScrollProps {
   className?: string;
 }
 
+const REVEAL_DURATION_MS = 900;
+
 const RevealOnScroll = forwardRef<HTMLDivElement, RevealOnScrollProps>(
   ({ children, delay = 0, className = "" }, forwardedRef) => {
     const localRef = useRef<HTMLDivElement | null>(null);
@@ -51,7 +53,8 @@ const RevealOnScroll = forwardRef<HTMLDivElement, RevealOnScrollProps>(
     // so lightbox open/close doesn't cause elements to disappear
     useEffect(() => {
       if (!visible) return;
-      const t = window.setTimeout(() => setAnimationDone(true), 900 + delay + 50);
+      // Small buffer after CSS transition ends to avoid clip-path removal during paint
+      const t = window.setTimeout(() => setAnimationDone(true), REVEAL_DURATION_MS + delay + 50);
       return () => window.clearTimeout(t);
     }, [visible, delay]);
 
@@ -76,7 +79,7 @@ const RevealOnScroll = forwardRef<HTMLDivElement, RevealOnScrollProps>(
             ? undefined
             : {
                 clipPath: visible ? "inset(0% 0 0% 0)" : "inset(100% 0 0% 0)",
-                transition: `clip-path 0.9s cubic-bezier(0.25, 1, 0.5, 1) ${delay}ms`,
+                transition: `clip-path ${REVEAL_DURATION_MS / 1000}s cubic-bezier(0.25, 1, 0.5, 1) ${delay}ms`,
               }
         }
       >

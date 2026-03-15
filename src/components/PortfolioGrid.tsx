@@ -77,7 +77,7 @@ const PortfolioGrid = () => {
         {/* Editorial 12-column grid */}
         <div className="grid grid-cols-12 gap-1 md:gap-1.5">
           {images.map((item, i) => (
-            <RevealOnScroll key={i} delay={i * 60} className={item.grid}>
+            <RevealOnScroll key={item.src} delay={i * 60} className={item.grid}>
               <div
                 className="overflow-hidden"
                 onMouseEnter={() => setHoveredIdx(i)}
