@@ -11,9 +11,9 @@ import imgDaily1    from "@/assets/daily/15-DSCF2527.jpg";
 import imgArch2     from "@/assets/architecture/2-DSC02159.jpg";
 
 // Editorial layout: 12-column grid
-// All images shown at natural proportions (h-auto, no cropping)
+// Street + Architecture images constrained to a taller aspect ratio on desktop
 // Row 1: Southbank portrait (5) + Cathedral portrait (7)
-// Row 2: Hands landscape (7) + Transit portrait (5) — only landscape, creates rhythm contrast
+// Row 2: Hands landscape (7) + Transit portrait (5)
 // Row 3: Newborn portrait (6) + Eye portrait (6) — symmetric close
 
 const images = [
@@ -21,31 +21,37 @@ const images = [
     src: imgStreet1,
     alt: "Skateboarder at the Southbank undercroft",
     grid: "col-span-12 md:col-span-5",
+    tall: true,
   },
   {
     src: imgArch1,
     alt: "St Paul's Cathedral dome at golden hour",
     grid: "col-span-12 md:col-span-7",
+    tall: true,
   },
   {
     src: imgHands1,
     alt: "An older man's hands clasped behind his back",
     grid: "col-span-12 md:col-span-7",
+    tall: false,
   },
   {
     src: imgStreet2,
     alt: "Figures seen through a passing train window",
     grid: "col-span-12 md:col-span-5",
+    tall: true,
   },
   {
     src: imgDaily1,
     alt: "Newborn baby sleeping with a small bow",
     grid: "col-span-12 md:col-span-6",
+    tall: false,
   },
   {
     src: imgArch2,
     alt: "Top of the London Eye rising into a clear sky",
     grid: "col-span-12 md:col-span-6",
+    tall: true,
   },
 ];
 
@@ -67,7 +73,7 @@ const PortfolioGrid = () => {
           {images.map((item, i) => (
             <RevealOnScroll key={item.src} delay={i * 60} className={item.grid}>
               <div
-                className="overflow-hidden"
+                className={`overflow-hidden${item.tall ? " md:aspect-[3/4]" : ""}`}
                 onMouseEnter={() => setHoveredIdx(i)}
                 onMouseLeave={() => setHoveredIdx(null)}
                 style={{
@@ -78,7 +84,7 @@ const PortfolioGrid = () => {
                 <img
                   src={item.src}
                   alt={item.alt}
-                  className="w-full h-auto block transition-transform duration-700 ease-out hover:scale-[1.025]"
+                  className={`w-full block transition-transform duration-700 ease-out hover:scale-[1.025]${item.tall ? " h-auto md:h-full md:object-cover md:object-center" : " h-auto"}`}
                   loading="lazy"
                 />
               </div>
