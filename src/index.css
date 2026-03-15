@@ -92,10 +92,24 @@
     font-family: 'Inter', sans-serif;
   }
 
-  /* Hero height — 100vh fallback for browsers without svh support */
+  /* Hero height — responsive, with 100vh fallback for browsers without svh support */
   .hero-height {
-    height: 100vh;
-    height: 100svh;
+    height: 75vh;
+    height: 75svh;
+  }
+
+  @media (min-width: 768px) {
+    .hero-height {
+      height: 88vh;
+      height: 88svh;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-height {
+      height: 100vh;
+      height: 100svh;
+    }
   }
 }
 
