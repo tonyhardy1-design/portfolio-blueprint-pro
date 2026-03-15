@@ -20,9 +20,8 @@ const AboutTeaser = () => {
                 fontSize: "clamp(1.7rem, 3.5vw, 3rem)",
               }}
             >
-              "To record things as they are,
-              <br />
-              before they disappear or pass unnoticed."
+              "To record things as they are,{" "}
+              <br />{"before they disappear or pass unnoticed."}
             </blockquote>
 
             <p className="font-body text-sm text-muted-foreground leading-[1.85] max-w-md mb-10">
