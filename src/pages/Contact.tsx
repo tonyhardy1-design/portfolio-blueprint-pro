@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import RevealOnScroll from "@/components/RevealOnScroll";
-import closingImg from "@/assets/daily/DSC01286.JPG";
+import closingImg from "@/assets/street/DSCF4933.JPG";
 
 const Contact = () => {
   return (
@@ -71,8 +71,9 @@ const Contact = () => {
       <div className="w-full overflow-hidden" style={{ height: "50vh" }}>
         <img
           src={closingImg}
-          alt="Still — a quiet moment from daily life"
-          className="w-full h-full object-cover object-top"
+          alt="Movement through a street market"
+          className="w-full h-full object-cover"
+          style={{ objectPosition: "center 35%" }}
           loading="lazy"
         />
       </div>

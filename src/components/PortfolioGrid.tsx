@@ -20,44 +20,38 @@ const images = [
   {
     src: imgStreet1,
     alt: "Skateboarder at the Southbank undercroft",
-    // Row 1: full width
     grid: "col-span-12",
-    aspect: "",
+    maxH: "45vh",
   },
   {
     src: imgArch1,
     alt: "St Paul's Cathedral dome at golden hour",
-    // Row 2: left column, wider
     grid: "col-span-12 md:col-span-7",
-    aspect: "",
+    maxH: "55vh",
   },
   {
     src: imgHands1,
     alt: "An older man's hands clasped behind his back",
-    // Row 2: right column, narrower — portrait aspect creates contrast
     grid: "col-span-12 md:col-span-5",
-    aspect: "",
+    maxH: "55vh",
   },
   {
     src: imgStreet2,
     alt: "Figures seen through a passing train window",
-    // Row 3: centred plate
     grid: "col-span-12 md:col-span-6 md:col-start-4",
-    aspect: "",
+    maxH: "50vh",
   },
   {
     src: imgDaily1,
     alt: "Newborn baby sleeping with a small bow",
-    // Row 4: left, narrower
     grid: "col-span-12 md:col-span-5",
-    aspect: "",
+    maxH: "55vh",
   },
   {
     src: imgArch2,
     alt: "Top of the London Eye rising into a clear sky",
-    // Row 4: right, wider — mirrors row 2 in reverse
     grid: "col-span-12 md:col-span-7",
-    aspect: "",
+    maxH: "55vh",
   },
 ];
 
@@ -83,6 +77,7 @@ const PortfolioGrid = () => {
                 onMouseEnter={() => setHoveredIdx(i)}
                 onMouseLeave={() => setHoveredIdx(null)}
                 style={{
+                  maxHeight: item.maxH,
                   opacity: hoveredIdx !== null && hoveredIdx !== i ? 0.2 : 1,
                   transition: "opacity 0.55s ease",
                 }}
@@ -90,7 +85,7 @@ const PortfolioGrid = () => {
                 <img
                   src={item.src}
                   alt={item.alt}
-                  className="w-full h-auto block transition-transform duration-700 ease-out hover:scale-[1.025]"
+                  className="w-full h-full object-cover block transition-transform duration-700 ease-out hover:scale-[1.025]"
                   loading="lazy"
                 />
               </div>
