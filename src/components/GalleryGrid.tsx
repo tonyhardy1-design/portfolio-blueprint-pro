@@ -138,7 +138,7 @@ interface GalleryGridProps {
   columns?: 1 | 2;
 }
 
-const GalleryGrid = ({ images }: GalleryGridProps) => {
+const GalleryGrid = ({ images, columns }: GalleryGridProps) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
