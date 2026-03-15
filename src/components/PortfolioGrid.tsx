@@ -10,48 +10,42 @@ import imgStreet2   from "@/assets/street/3-DSC02082.jpg";
 import imgDaily1    from "@/assets/daily/15-DSCF2527.jpg";
 import imgArch2     from "@/assets/architecture/2-DSC02159.jpg";
 
-// Editorial layout: 12-column grid with intentional asymmetry
-// Row 1: full-width landscape
-// Row 2: 7/5 cols (landscape + portrait tension)
-// Row 3: single "plate" centred at 6 cols
-// Row 4: 5/7 cols (mirrored from row 2)
+// Editorial layout: 12-column grid
+// All images shown at natural proportions (h-auto, no cropping)
+// Row 1: Southbank portrait (5) + Cathedral portrait (7)
+// Row 2: Hands landscape (7) + Transit portrait (5) — only landscape, creates rhythm contrast
+// Row 3: Newborn portrait (6) + Eye portrait (6) — symmetric close
 
 const images = [
   {
     src: imgStreet1,
     alt: "Skateboarder at the Southbank undercroft",
-    grid: "col-span-12",
-    maxH: "45vh",
+    grid: "col-span-12 md:col-span-5",
   },
   {
     src: imgArch1,
     alt: "St Paul's Cathedral dome at golden hour",
     grid: "col-span-12 md:col-span-7",
-    maxH: "55vh",
   },
   {
     src: imgHands1,
     alt: "An older man's hands clasped behind his back",
-    grid: "col-span-12 md:col-span-5",
-    maxH: "55vh",
+    grid: "col-span-12 md:col-span-7",
   },
   {
     src: imgStreet2,
     alt: "Figures seen through a passing train window",
-    grid: "col-span-12 md:col-span-6 md:col-start-4",
-    maxH: "50vh",
+    grid: "col-span-12 md:col-span-5",
   },
   {
     src: imgDaily1,
     alt: "Newborn baby sleeping with a small bow",
-    grid: "col-span-12 md:col-span-5",
-    maxH: "55vh",
+    grid: "col-span-12 md:col-span-6",
   },
   {
     src: imgArch2,
     alt: "Top of the London Eye rising into a clear sky",
-    grid: "col-span-12 md:col-span-7",
-    maxH: "55vh",
+    grid: "col-span-12 md:col-span-6",
   },
 ];
 
@@ -69,7 +63,7 @@ const PortfolioGrid = () => {
         </div>
 
         {/* Editorial 12-column grid */}
-        <div className="grid grid-cols-12 gap-1 md:gap-1.5">
+        <div className="grid grid-cols-12 gap-1 md:gap-1.5 items-start">
           {images.map((item, i) => (
             <RevealOnScroll key={item.src} delay={i * 60} className={item.grid}>
               <div
@@ -77,7 +71,6 @@ const PortfolioGrid = () => {
                 onMouseEnter={() => setHoveredIdx(i)}
                 onMouseLeave={() => setHoveredIdx(null)}
                 style={{
-                  maxHeight: item.maxH,
                   opacity: hoveredIdx !== null && hoveredIdx !== i ? 0.2 : 1,
                   transition: "opacity 0.55s ease",
                 }}
@@ -85,7 +78,7 @@ const PortfolioGrid = () => {
                 <img
                   src={item.src}
                   alt={item.alt}
-                  className="w-full h-full object-cover block transition-transform duration-700 ease-out hover:scale-[1.025]"
+                  className="w-full h-auto block transition-transform duration-700 ease-out hover:scale-[1.025]"
                   loading="lazy"
                 />
               </div>

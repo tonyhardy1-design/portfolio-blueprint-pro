@@ -73,7 +73,7 @@ const Contact = () => {
           src={closingImg}
           alt="Movement through a street market"
           className="w-full h-full object-cover"
-          style={{ objectPosition: "center 35%" }}
+          style={{ objectPosition: "center 60%" }}
           loading="lazy"
         />
       </div>
