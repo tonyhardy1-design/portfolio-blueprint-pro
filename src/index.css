@@ -92,6 +92,17 @@
     font-family: 'Inter', sans-serif;
   }
 
+  /* Quote font — smaller on mobile, original clamp on tablet+ */
+  .quote-text {
+    font-size: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .quote-text {
+      font-size: clamp(1.7rem, 3.5vw, 3rem);
+    }
+  }
+
   /* Hero height — responsive, with 100vh fallback for browsers without svh support */
   .hero-height {
     height: 50vh;
