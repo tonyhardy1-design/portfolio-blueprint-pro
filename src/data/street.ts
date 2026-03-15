@@ -1,9 +1,7 @@
 import southbank  from "@/assets/street/bw-portrait-1.jpg";
 import piccadilly from "@/assets/street/bw-arch-1.jpg";
 import transit    from "@/assets/street/3-DSC02082.jpg";
-import lisbon     from "@/assets/street/4-DSC00283.jpg";
 import frequency  from "@/assets/street/13-DSC02594.jpg";
-import theCity    from "@/assets/street/14-DSC00891.jpg";
 import sunday     from "@/assets/street/5-DSCF9081.jpg";
 import franks     from "@/assets/street/6-DSCF9079.jpg";
 import pier       from "@/assets/street/16-DSCF1567.jpg";
@@ -21,9 +19,7 @@ export const streetImages = [
   { src: southbank,  alt: "Skateboarder at the Southbank undercroft",                         title: "Southbank"  },
   { src: piccadilly, alt: "Crowd moving past red phone boxes, Piccadilly",                     title: "Piccadilly" },
   { src: transit,    alt: "Figures seen through a passing train window",                       title: "Transit"    },
-  { src: lisbon,     alt: "Man in yellow jacket, building reflected in a van",                 title: "Reflection" },
   { src: frequency,  alt: "Woman with headphones facing a large billboard",                    title: "Frequency"  },
-  { src: theCity,    alt: "Man walking through the City of London, reflected in glass panels", title: "The City"   },
   { src: sunday,     alt: "Candy floss stall on the Southbank on a summer evening",            title: "Sunday"     },
   { src: franks,     alt: "Families eating at Frank's Hot Dogs diner",                         title: "Frank's"    },
   { src: pier,       alt: "Two people relaxing in deckchairs on Brighton Pier",                title: "Pier"       },

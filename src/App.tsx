@@ -7,6 +7,7 @@ import StreetPhotography from "./pages/StreetPhotography";
 import Architecture from "./pages/Architecture";
 import DailyPerspectives from "./pages/DailyPerspectives";
 import Hands from "./pages/Hands";
+import Reflections from "./pages/Reflections";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
@@ -58,6 +59,7 @@ const AnimatedRoutes = () => (
       <Route path="/portfolio/architecture" element={<Architecture />} />
       <Route path="/portfolio/daily" element={<DailyPerspectives />} />
       <Route path="/portfolio/hands" element={<Hands />} />
+      <Route path="/portfolio/reflections" element={<Reflections />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="*" element={<NotFound />} />

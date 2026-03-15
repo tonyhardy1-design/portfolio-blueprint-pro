@@ -164,7 +164,7 @@ const GalleryGrid = ({ images, columns }: GalleryGridProps) => {
       </p>
 
       <div
-        className={`grid gap-1 ${
+        className={`grid gap-1 items-start ${
           (columns === 1 || images.length <= 1) ? "grid-cols-1" : "grid-cols-1 md:grid-cols-2"
         }`}
       >

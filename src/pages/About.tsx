@@ -2,13 +2,14 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import RevealOnScroll from "@/components/RevealOnScroll";
-import aboutPhoto from "@/assets/about-tony.jpg";
+import aboutPhoto from "@/assets/daily/DSC01286.JPG";
 
 const disciplines = [
   { title: "Street",       subtitle: "Documentary",   path: "/portfolio/street" },
   { title: "Architecture", subtitle: "Built Form",    path: "/portfolio/architecture" },
   { title: "Hands",        subtitle: "Studies",       path: "/portfolio/hands" },
   { title: "Daily",        subtitle: "Observational", path: "/portfolio/daily" },
+  { title: "Reflections",  subtitle: "Surfaces",      path: "/portfolio/reflections" },
 ];
 
 const About = () => {
@@ -21,7 +22,7 @@ const About = () => {
         <div className="w-full overflow-hidden" style={{ aspectRatio: "16/9" }}>
           <img
             src={aboutPhoto}
-            alt="Tony Hardy"
+            alt="Still — a quiet moment from daily life"
             className="w-full h-full object-cover object-center"
           />
         </div>
@@ -70,7 +71,7 @@ const About = () => {
 
           {/* Disciplines — 4 columns, larger scale */}
           <RevealOnScroll delay={120}>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-10 border-t border-border mb-20 md:mb-28">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-8 pt-10 border-t border-border mb-20 md:mb-28">
               {disciplines.map((d) => (
                 <div key={d.title}>
                   <Link

@@ -6,6 +6,7 @@ import { streetThumbnail } from "@/data/street";
 import { architectureThumbnail } from "@/data/architecture";
 import { dailyThumbnail } from "@/data/daily";
 import { handsThumbnail } from "@/data/hands";
+import { reflectionsThumbnail } from "@/data/reflections";
 
 const categories = [
   {
@@ -35,6 +36,13 @@ const categories = [
     path: "/portfolio/daily",
     image: dailyThumbnail,
     alt: "Newborn baby sleeping with a small bow",
+  },
+  {
+    label: "Reflections",
+    description: "Surfaces, glass, and the doubled world they reveal.",
+    path: "/portfolio/reflections",
+    image: reflectionsThumbnail,
+    alt: "Man in yellow jacket, building reflected in a van",
   },
 ];
 
