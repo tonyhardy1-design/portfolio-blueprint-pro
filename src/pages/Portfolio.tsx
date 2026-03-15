@@ -77,7 +77,7 @@ const Portfolio = () => {
                 }`}
               >
                 {/* Image — 60% */}
-                <div className="w-full md:w-3/5 overflow-hidden">
+                <div className="w-full md:w-3/5 overflow-hidden" style={{ maxHeight: "70vh" }}>
                   <img
                     src={cat.image}
                     alt={cat.alt}
