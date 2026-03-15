@@ -57,7 +57,7 @@ const Portfolio = () => {
               fontSize: "clamp(2.5rem, 5.5vw, 5rem)",
             }}
           >
-            The work
+            The Work
           </h1>
         </div>
       </section>
