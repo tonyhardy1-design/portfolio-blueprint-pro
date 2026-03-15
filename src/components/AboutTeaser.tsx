@@ -17,7 +17,7 @@ const AboutTeaser = () => {
                 fontFamily: "'EB Garamond', serif",
                 fontStyle: "italic",
                 fontWeight: 400,
-                fontSize: "clamp(1.7rem, 3.5vw, 3rem)",
+                fontSize: "clamp(1.25rem, 3.5vw, 3rem)",
               }}
             >
               "To record things as they are, before they disappear or pass unnoticed."
