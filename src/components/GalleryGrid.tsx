@@ -135,6 +135,7 @@ const Lightbox = ({ images, activeIndex, onClose, onPrev, onNext }: LightboxProp
 
 interface GalleryGridProps {
   images: GalleryImage[];
+  columns?: 1 | 2;
 }
 
 const GalleryGrid = ({ images }: GalleryGridProps) => {
