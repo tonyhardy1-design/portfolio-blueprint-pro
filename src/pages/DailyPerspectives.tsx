@@ -25,7 +25,7 @@ const DailyPerspectives = () => {
             </p>
           </div>
 
-          <GalleryGrid images={dailyImages} columns={1} />
+          <GalleryGrid images={dailyImages} />
         </div>
       </section>
       <Footer />
