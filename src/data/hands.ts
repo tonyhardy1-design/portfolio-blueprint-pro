@@ -7,6 +7,7 @@ import study5      from "@/assets/Hands/DSC00628.JPG";
 import study6      from "@/assets/Hands/DSC00874.JPG";
 import generations from "@/assets/Hands/Generations.jpg";
 import smoker      from "@/assets/Hands/Smoker.jpg";
+import toddlers    from "@/assets/Hands/Toddlers.jpg";
 
 export const handsImages = [
   { src: patience, alt: "An older man's hands clasped behind his back",  title: "Patient"   },
@@ -18,6 +19,7 @@ export const handsImages = [
   { src: study6,      alt: "Hands in passing light",                     title: "Business"    },
   { src: generations, alt: "Hands across generations",                  title: "Generations" },
   { src: smoker,      alt: "A smoker's hands",                          title: "Smoker"      },
+  { src: toddlers,   alt: "Toddlers at play",                          title: "Toddlers"    },
 ];
 
 // Used as the thumbnail on the Portfolio index page

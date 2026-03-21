@@ -4,7 +4,6 @@ import afternoon   from "@/assets/daily/DSC02666.JPG";
 import passage     from "@/assets/daily/DSC02764.JPG";
 import sisters     from "@/assets/daily/Sisters.jpg";
 import sunflowers  from "@/assets/daily/Sunflowers.jpg";
-import toddlers    from "@/assets/daily/Toddlers.jpg";
 
 export const dailyImages = [
   { src: firstLight, alt: "Newborn baby sleeping with a small bow",   title: "Bow"         },
@@ -13,7 +12,6 @@ export const dailyImages = [
   { src: passage,    alt: "A window onto ordinary life",              title: "Nature"      },
   { src: sisters,    alt: "Two sisters together",                     title: "Sisters"     },
   { src: sunflowers, alt: "Sunflowers in bloom",                      title: "Sunflowers"  },
-  { src: toddlers,   alt: "Toddlers at play",                         title: "Toddlers"    },
 ];
 
 // Used as the thumbnail on the Portfolio index page
