@@ -4,10 +4,10 @@ import afternoon  from "@/assets/daily/DSC02666.JPG";
 import passage    from "@/assets/daily/DSC02764.JPG";
 
 export const dailyImages = [
-  { src: firstLight, alt: "Newborn baby sleeping with a small bow",   title: "First Light" },
-  { src: still,      alt: "A quiet moment from daily life",           title: "Still"       },
-  { src: afternoon,  alt: "An afternoon observation",                 title: "Afternoon"   },
-  { src: passage,    alt: "A window onto ordinary life",              title: "Passage"     },
+  { src: firstLight, alt: "Newborn baby sleeping with a small bow",   title: "Bow"         },
+  { src: still,      alt: "A quiet moment from daily life",           title: "Hiding"      },
+  { src: afternoon,  alt: "An afternoon observation",                 title: "Woodland"    },
+  { src: passage,    alt: "A window onto ordinary life",              title: "Nature"      },
 ];
 
 // Used as the thumbnail on the Portfolio index page
