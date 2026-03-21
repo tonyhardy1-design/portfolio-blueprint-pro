@@ -6,12 +6,12 @@ import colonnade from "@/assets/architecture/DSC02173.JPG";
 import arcade    from "@/assets/architecture/DSC02207.JPG";
 
 export const architectureImages = [
-  { src: eye,       alt: "Top of the London Eye rising into a clear sky",          title: "St Paul's" },
-  { src: passage,   alt: "Dock cranes silhouetted with a plane overhead",          title: "Big Ben"   },
-  { src: barbican,  alt: "Barbican tower at dusk framed by trees",                 title: "Southbank" },
-  { src: cathedral, alt: "St Paul's Cathedral dome at golden hour",                title: "Cathedral" },
-  { src: colonnade, alt: "Figure walking through a colonnaded arcade",             title: "Colonnade" },
-  { src: arcade,    alt: "Light falling through an architectural passage",         title: "Arcade"    },
+  { src: eye,       alt: "Top of the London Eye rising into a clear sky",          title: "Eye"       },
+  { src: passage,   alt: "Dock cranes silhouetted with a plane overhead",          title: "Flight"    },
+  { src: barbican,  alt: "Barbican tower at dusk framed by trees",                 title: "Barbican"  },
+  { src: cathedral, alt: "St Paul's Cathedral dome at golden hour",                title: "St Paul's" },
+  { src: colonnade, alt: "Figure walking through a colonnaded arcade",             title: "Big Ben"   },
+  { src: arcade,    alt: "Light falling through an architectural passage",         title: "Southbank" },
 ];
 
 // Used as the thumbnail on the Portfolio index page
