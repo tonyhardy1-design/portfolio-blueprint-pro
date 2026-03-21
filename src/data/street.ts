@@ -1,20 +1,22 @@
-import southbank  from "@/assets/street/bw-portrait-1.jpg";
-import piccadilly from "@/assets/street/bw-arch-1.jpg";
-import transit    from "@/assets/street/3-DSC02082.jpg";
-import frequency  from "@/assets/street/13-DSC02594.jpg";
-import sunday     from "@/assets/street/5-DSCF9081.jpg";
-import franks     from "@/assets/street/6-DSCF9079.jpg";
-import pier       from "@/assets/street/16-DSCF1567.jpg";
-import tram       from "@/assets/street/4-DSCF1570.jpg";
-import market     from "@/assets/street/DSCF4933.JPG";
-import queue      from "@/assets/street/DSCF4951.JPG";
-import undercroft from "@/assets/street/DSCF9054.JPG";
-import rush       from "@/assets/street/DSCF3235.JPG";
-import plaza      from "@/assets/street/DSC06255.JPG";
-import steps      from "@/assets/street/DSCF4941.JPG";
-import overpass   from "@/assets/street/DSCF7852.JPG";
-import scene1     from "@/assets/street/DSC09463.JPG";
-import scene2     from "@/assets/street/DSCF5455.JPG";
+import southbank   from "@/assets/street/bw-portrait-1.jpg";
+import piccadilly  from "@/assets/street/bw-arch-1.jpg";
+import transit     from "@/assets/street/3-DSC02082.jpg";
+import frequency   from "@/assets/street/13-DSC02594.jpg";
+import sunday      from "@/assets/street/5-DSCF9081.jpg";
+import franks      from "@/assets/street/6-DSCF9079.jpg";
+import pier        from "@/assets/street/16-DSCF1567.jpg";
+import tram        from "@/assets/street/4-DSCF1570.jpg";
+import market      from "@/assets/street/DSCF4933.JPG";
+import queue       from "@/assets/street/DSCF4951.JPG";
+import undercroft  from "@/assets/street/DSCF9054.JPG";
+import rush        from "@/assets/street/DSCF3235.JPG";
+import plaza       from "@/assets/street/DSC06255.JPG";
+import steps       from "@/assets/street/DSCF4941.JPG";
+import overpass    from "@/assets/street/DSCF7852.JPG";
+import scene1      from "@/assets/street/DSC09463.JPG";
+import scene2      from "@/assets/street/DSCF5455.JPG";
+import overground  from "@/assets/street/Overground.jpg";
+import painter     from "@/assets/street/Painter.jpg";
 
 export const streetImages = [
   { src: southbank,  alt: "Skateboarder at the Southbank undercroft",                         title: "Skater"     },
@@ -34,6 +36,8 @@ export const streetImages = [
   { src: overpass,   alt: "View from an urban overpass",                                       title: "Bridge"     },
   { src: scene1,     alt: "Street scene",                                                      title: "Barbican"   },
   { src: scene2,     alt: "Street scene",                                                      title: "Fisherman"  },
+  { src: overground, alt: "Passengers on the London Overground",                               title: "Overground" },
+  { src: painter,    alt: "A painter at work on the street",                                   title: "Painter"    },
 ];
 
 // Used as the thumbnail on the Portfolio index page
