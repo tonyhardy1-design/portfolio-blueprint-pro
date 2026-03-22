@@ -78,7 +78,7 @@ const Contact = () => {
       </section>
 
       {/* Closing image — atmospheric sign-off */}
-      <div className="w-full overflow-hidden" style={{ height: "50vh" }}>
+      <div className="w-full overflow-hidden" style={{ height: "62.5vh" }}>
         <img
           src={closingImg}
           alt="Movement through a street market"
