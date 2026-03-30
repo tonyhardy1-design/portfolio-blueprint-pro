@@ -6,7 +6,8 @@ import study4      from "@/assets/Hands/DSC01185.JPG";
 import study5      from "@/assets/Hands/DSC00628.JPG";
 import study6      from "@/assets/Hands/DSC00874.JPG";
 import generations from "@/assets/Hands/Generations.jpg";
-import smoker      from "@/assets/Hands/Smoker.jpg";
+import smokerI     from "@/assets/Hands/Smoker I.jpg";
+import smokerII    from "@/assets/Hands/Smoker II.jpg";
 import toddlers    from "@/assets/Hands/Toddlers.jpg";
 
 export const handsImages = [
@@ -18,7 +19,8 @@ export const handsImages = [
   { src: study5,   alt: "Two hands, a quiet composition",                title: "Close"     },
   { src: study6,      alt: "Hands in passing light",                     title: "Business"    },
   { src: generations, alt: "Hands across generations",                  title: "Generations" },
-  { src: smoker,      alt: "A smoker's hands",                          title: "Smoker"      },
+  { src: smokerI,     alt: "A smoker's hands",                          title: "Smoker I"    },
+  { src: smokerII,    alt: "A smoker's hands, second study",             title: "Smoker II"   },
   { src: toddlers,   alt: "Toddlers at play",                          title: "Toddlers"    },
 ];
 
